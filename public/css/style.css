@@ -105,115 +105,6 @@
     font-weight: normal;
 }
 
-/*** Navbar ***/
-
-
-.navbar .navbar-brand,
-.navbar a.btn {
-    height: 75px;
-}
-
-.navbar .navbar-nav .nav-link {
-    margin-right: 30px;
-    padding: 25px 0;
-    color: var(--dark);
-    font-size: 15px;
-    font-weight: 500;
-    text-transform: uppercase;
-    outline: none;
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.navbar .navbar-nav .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: width 0.3s ease;
-}
-
-.navbar .navbar-nav .nav-link:hover::after {
-    width: 100%;
-} /* Added transition */
-
-
-.navbar .navbar-nav .nav-link:hover,
-.navbar .navbar-nav .nav-link.active {
-    color: var(--primary);
-    transform: translateY(-3px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-
-.navbar .dropdown-toggle::after {
-    border: none;
-    content: "\f107";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    vertical-align: middle;
-    margin-left: 8px;
-}
-
-@media (max-width: 991.98px) {
-    .navbar .navbar-nav .nav-link  {
-        margin-right: 0;
-        padding: 12px 0;
-        font-size: 14px;
-        transition: all 0.3s ease;
-    }
-    
-    .navbar .navbar-nav .nav-link:hover {
-        transform: translateX(8px);
-        color: var(--primary);
-    }
-
-    .navbar .navbar-nav {
-        border-top: 1px solid rgba(238, 238, 238, 0.2);
-        padding: 15px 0;
-    }
-    
-    .navbar-toggler {
-        border: none;
-        padding: 0.5rem;
-        transition: transform 0.3s ease;
-    }
-    
-    .navbar-toggler:focus {
-        box-shadow: 0 0 0 0.15rem rgba(244, 153, 24, 0.25);
-    }
-    
-    .navbar-toggler:hover {
-        transform: scale(1.1);
-    }
-}
-
-@media (min-width: 992px) {
-    .navbar .nav-item .dropdown-menu {
-        display: block;
-        border: none;
-        margin-top: 0;
-        top: 150%;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .navbar .nav-item:hover .dropdown-menu {
-        top: 100%;
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-}
-
-
-
 
 /*** Header ***/
 .owl-carousel-inner {
@@ -402,7 +293,7 @@
     width: 0;
     height: 100%;
     top: 0;
-    background: #9BBD2D;
+    background: #9B9B9D;
     transition: .5s;
 }
 

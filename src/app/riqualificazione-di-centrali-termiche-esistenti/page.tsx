@@ -1,118 +1,35 @@
-
+'use client';
 import PageHeader from '@/components/PageHeader';
+import InfoCarousel from '@/components/InfoCarousel';
 
 const Page = () => {
+  const carouselItems = [
+    <div>
+      <h5 className="mb-3">Diagnosi Energetica</h5>
+      <p>Identifichiamo le criticità del sistema edificio/impianto attraverso analisi dettagliate e software di calcolo per proporre soluzioni sostenibili.</p>
+    </div>,
+    <div>
+      <h5 className="mb-3">Riqualificazione Centrali Termiche</h5>
+      <p>Proponiamo interventi di riqualificazione per migliorare l’efficienza, ridurre i consumi e adeguare gli impianti alle normative vigenti.</p>
+    </div>,
+    <div>
+      <h5 className="mb-3">Soluzioni Tecnico-Economiche</h5>
+      <p>Valutiamo e proponiamo soluzioni che bilanciano l’efficienza energetica con la sostenibilità economica dell’investimento.</p>
+    </div>
+  ];
+
   return (
     <>
-      <PageHeader
-        title="Riqualificazione di centrali termiche esistenti"
-        breadcrumb="Riqualificazione di centrali termiche esistenti"
-      />
-
-      {/* Testimonial Start */}
+      <PageHeader title="Diagnosi e Riqualificazione" breadcrumb="Diagnosi e Riqualificazione" />
       <div className="container-xxl py-5">
         <div className="container">
-          <div
-            className="text-center mx-auto mb-5 wow fadeInUp"
-            data-wow-delay="0.1s"
-            style={{ maxWidth: 600 }}
-          >
-            <h6 className="text-primary">
-              Riqualificazione di centrali termiche esistenti
-            </h6>
-            <p className="mb-4">
-              LC Energia offre consulenza e progettazione per la
-              riqualificazione delle centrali termiche esistenti civili e
-              industriali, al fine di conseguire il miglioramento
-              dell’efficienza energetica.
-            </p>
+          <div className="text-center mx-auto mb-5" style={{ maxWidth: 600 }}>
+            <h6 className="text-primary">Diagnosi Energetica e Riqualificazione Centrali Termiche</h6>
+            <p className="mb-4">La nostra esperienza al servizio dell’efficienza per valutare e proporre soluzioni sostenibili sotto il profilo tecnico ed economico.</p>
           </div>
-          <div
-            className="text-center mx-auto mb-5 wow fadeInUp"
-            data-wow-delay="0.1s"
-            style={{ maxWidth: 600 }}
-          >
-            {/* <img src="img/natural.png" alt="Vantaggi" className="img-fluid mt-2" style="max-width: 80%; height: auto;"> */}
-          </div>
-          <div
-            className="owl-carousel testimonial-carousel wow fadeInUp"
-            data-wow-delay="0.1s"
-          >
-            <div className="testimonial-item text-center">
-              <div className="testimonial-text text-center rounded p-4">
-                <p>
-                  Sotto il profilo normativo: adeguamento sotto il profilo
-                  della sicurezza antincendio e ambientale comprese denunce
-                  INAIL (D.M. 1/12/75), pratiche gas combustibile (D.M.
-                  37/2008, Delibera 40/08), certificazione prevenzione incendi
-                  (D.P.R. 37/98), diagnosi e certificazione energetica (decreto
-                  311/07 e delibere Regione Lombardia 8745/08 e successivi
-                  aggiornamenti).
-                </p>
-              </div>
-            </div>
-            <div className="testimonial-item text-center">
-              <div className="testimonial-text text-center rounded p-4">
-                <h5 className="mb-3">
-                  Centrali termiche esistenti con generatori di età maggiore di
-                  15 anni
-                </h5>
-                <p>
-                  La normativa regionale Lombardia DGR 3502 del 5/8/2020,
-                  aggiornata dalla DGR n.816 2023 fornisce le linee guida per
-                  la riqualificazione delle centrali termiche esistenti civili e
-                  industriali con generatori aventi potenza superiore a 116,3
-                  kW, di età superiore a 15 anni e con rendimento di combustione
-                  superiore ai limiti minimi previsti per legge.
-                </p>
-                <p>
-                  Tale normativa, nell’ottica dell’efficientamento energetico e
-                  della riduzione delle emissioni di gas climalteranti, prevede
-                  la presentazione di una diagnosi energetica, redatta ai sensi
-                  delle norme UNI CEI EN 16247-1/2: 2022.
-                </p>
-              </div>
-            </div>
-            <div className="testimonial-item text-center">
-              <div className="testimonial-text text-center rounded p-4">
-                <h5 className="mb-3">Ambiti di riqualificazione</h5>
-                <ul className="text-start">
-                  <li>
-                    Integrazione dei generatori esistenti con nuovi apparecchi
-                    alimentati da energia rinnovabile quali pompe di calore,
-                    solare termico, nuovi produttori di acqua calda sanitaria.
-                  </li>
-                  <li>
-                    Inserimento di impianti fotovoltaici per la autoproduzione
-                    di energia elettrica.
-                  </li>
-                  <li>
-                    Riqualifica del sistema di emissione, termoregolazione.
-                  </li>
-                  <li>Sostituzione dei serramenti obsoleti.</li>
-                  <li>
-                    Riqualifica dell’involucro edilizio mediante coibentazione
-                    delle strutture disperdenti, in particolare pareti esterne e
-                    copertura.
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="testimonial-item text-center">
-              <div className="testimonial-text text-center rounded p-4">
-                <p>
-                  LC Energia tramite i propri tecnici qualificati ed accreditati
-                  offre la necessaria consulenza per la redazione della
-                  documentazione richiesta, la quale risulta di fondamentale
-                  importanza per poter valutare e definire gli eventuali
-                  interventi di efficientamento dell’edificio.
-                </p>
-              </div>
-            </div>
-          </div>
+          <InfoCarousel items={carouselItems} />
         </div>
       </div>
-      {/* Testimonial End */}
     </>
   );
 };

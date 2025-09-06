@@ -1,7 +1,6 @@
-
 'use client';
-
 import PageHeader from '@/components/PageHeader';
+import { motion } from 'framer-motion';
 
 const Page = () => {
   return (
@@ -18,39 +17,44 @@ const Page = () => {
       >
         <div className="container contact px-lg-0">
           <div className="row g-0 mx-lg-0">
-            <div
-              className="col-lg-6 contact-text py-5 wow fadeIn"
-              data-wow-delay="0.5s"
+            <motion.div
+              className="col-lg-6 contact-text py-5"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
               <div
-                className="contact-buttons mb-5 wow fadeInUp"
-                data-wow-delay="0.3s"
+                className="contact-buttons mb-5"
               >
                 <p>Se hai bisogno di un preventivo, non esitare a contattarci:</p>
                 <div className="d-flex gap-3">
-                  <button
+                  <motion.button
                     className="btn btn-primary"
                     onClick={() => {
                       window.location.href = "mailto:info@lc-energia.it";
                     }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     Invia una mail
-                  </button>
-                  <button
+                  </motion.button>
+                  <motion.button
                     className="btn btn-secondary"
                     onClick={() => {
                       window.location.href = "tel:0362992142";
                     }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     Chiama ora
-                  </button>
+                  </motion.button>
                 </div>
                 <p className="mt-3">Email: info@lc-energia.it</p>
                 <p>Telefono: 0362 992142</p>
               </div>
               <div
-                className=" mb-5 wow fadeInUp"
-                data-wow-delay="0.1s"
+                className="mb-5"
                 style={{ maxWidth: 600 }}
               >
                 <img
@@ -60,7 +64,7 @@ const Page = () => {
                   style={{ maxWidth: "100%", height: "auto" }}
                 />
               </div>
-            </div>
+            </motion.div>
             <div className="col-lg-6 pe-lg-0" style={{ minHeight: 400 }}>
               <div className="position-relative h-100">
                 <iframe

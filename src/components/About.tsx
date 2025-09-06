@@ -1,9 +1,18 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 const About = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'end start']
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
+
   return (
-    <div className="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+    <div ref={containerRef} className="container-fluid bg-light overflow-hidden my-5 px-lg-0">
       <div className="container about px-lg-0">
         <div className="row g-0 mx-lg-0">
           <motion.div 
@@ -11,7 +20,7 @@ const About = () => {
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="p-lg-5 pe-lg-0">
               <h6 className="text-primary">Eccellenza nella Riqualificazione Energetica e Progettazione Tecnologica</h6>
@@ -23,18 +32,19 @@ const About = () => {
               <p><i className="fa fa-check-circle text-primary me-3"></i>Offrendo la nostra professionalità e disponibilità.</p>
             </div>
           </motion.div>
-          <motion.div 
+          <div 
             className="col-lg-6 ps-lg-0"
-            initial={{ x: 100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
             style={{ minHeight: '400px' }}
           >
             <div className="position-relative h-100">
-              <img className="position-absolute img-fluid w-100 h-100" src="/img/1Trabajador campo paneles solares.jpg" style={{ objectFit: 'cover' }} alt="" />
+              <motion.img 
+                className="position-absolute img-fluid w-100 h-100"
+                src="/img/1Trabajador campo paneles solares.jpg" 
+                style={{ objectFit: 'cover', y }}
+                alt="" 
+              />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

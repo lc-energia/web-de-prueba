@@ -1,41 +1,55 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Script from 'next/script';
+import { motion, AnimatePresence } from 'motion/react';
+import { usePathname } from 'next/navigation';
 import Spinner from '@/components/Spinner';
 import Topbar from '@/components/Topbar';
-import Navbar from '@/components/Navbar';
+import CustomNavbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
-import InteractiveInitializer from '@/components/InteractiveInitializer';
 
 export default function AppInitializer({ children }: { children: React.ReactNode }) {
-  const [isJQueryLoaded, setJQueryLoaded] = useState(false);
+  const pathname = usePathname();
+  const [isLoading, setIsLoading] = useState(true);
 
-  const handleJQueryLoad = () => {
-    setJQueryLoaded(true);
-  };
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 250); // Shortened delay
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
-      <Spinner />
-      <Topbar />
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
-      <BackToTop />
-      <InteractiveInitializer isJQueryLoaded={isJQueryLoaded} />
+      <Spinner isLoading={isLoading} />
 
-      {/* JavaScript Libraries */}
-      <Script src="https://code.jquery.com/jquery-3.4.1.min.js" onLoad={handleJQueryLoad}></Script>
-      <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></Script>
-      <Script src="/lib/wow/wow.min.js"></Script>
-      <Script src="/lib/easing/easing.min.js"></Script>
-      <Script src="/lib/waypoints/waypoints.min.js"></Script>
-      <Script src="/lib/counterup/counterup.min.js"></Script>
-      <Script src="/lib/owlcarousel/owl.carousel.min.js"></Script>
-      <Script src="/lib/isotope/isotope.pkgd.min.js"></Script>
-      <Script src="/lib/lightbox/js/lightbox.min.js"></Script>
+      {/* Render content directly after loading, removing the extra wrapping div */}
+      {!isLoading && (
+        <>
+          <Topbar />
+          <motion.div
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+          >
+            <CustomNavbar />
+          </motion.div>
+
+          <AnimatePresence mode="wait">
+            <motion.main
+              key={pathname}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              {children}
+            </motion.main>
+          </AnimatePresence>
+
+          <Footer />
+          <BackToTop />
+        </>
+      )}
     </>
   );
 }

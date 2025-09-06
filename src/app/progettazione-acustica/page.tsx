@@ -1,80 +1,35 @@
-
+'use client';
 import PageHeader from '@/components/PageHeader';
+import ScrollableCardList from '@/components/ScrollableCardList';
 
 const Page = () => {
+  const cardItems = [
+    <div>
+      <h5 className="mb-3">Valutazione Impatto Acustico</h5>
+      <p>Analisi previsionale per nuove costruzioni o modifiche, per garantire il rispetto dei limiti di legge e il comfort acustico.</p>
+    </div>,
+    <div>
+      <h5 className="mb-3">Requisiti Acustici Passivi</h5>
+      <p>Progettazione degli elementi costruttivi per assicurare l’isolamento acustico necessario tra diverse unità immobiliari.</p>
+    </div>,
+    <div>
+      <h5 className="mb-3">Classificazione Acustica</h5>
+      <p>Determinazione della classe acustica degli edifici secondo le normative vigenti, un requisito fondamentale per la qualità edilizia.</p>
+    </div>
+  ];
+
   return (
     <>
       <PageHeader title="Progettazione Acustica" breadcrumb="Progettazione Acustica" />
-
-      {/* Testimonial Start */}
       <div className="container-xxl py-5">
         <div className="container">
-          <div
-            className="text-center mx-auto mb-5 wow fadeInUp"
-            data-wow-delay="0.1s"
-            style={{ maxWidth: 600 }}
-          >
+          <div className="text-center mx-auto mb-5" style={{ maxWidth: 600 }}>
             <h6 className="text-primary">Progettazione Acustica</h6>
-            <p className="mb-4">
-              LC Energia offre una consulenza specifica per il settore acustico
-              con la redazione delle pratiche di valutazione del clima acustico.
-            </p>
+            <p className="mb-4">L’inquinamento acustico è un problema rilevante. Offriamo soluzioni conformi alla Legge Quadro 447/95 per la progettazione e la verifica dei requisiti acustici.</p>
           </div>
-          <div
-            className="owl-carousel testimonial-carousel wow fadeInUp"
-            data-wow-delay="0.1s"
-          >
-            <div className="testimonial-item text-center">
-              <div className="testimonial-text text-center rounded p-4">
-                <h5 className="mb-3">Isolamento da Rumori</h5>
-                <p>
-                  Offriamo servizi di analisi e progettazione per garantire un
-                  adeguato isolamento acustico delle strutture, comprese:
-                </p>
-                <ul className="text-start">
-                  <li>
-                    Redazione delle pratiche di valutazione del clima acustico.
-                  </li>
-                  <li>
-                    Analisi dei requisiti acustici delle strutture (D.P.C.M.
-                    5/12/97).
-                  </li>
-                  <li>Verifiche di impatto acustico.</li>
-                  <li>
-                    Assistenza lavori e collaudo acustico degli edifici.
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="testimonial-item text-center">
-              <div className="testimonial-text text-center rounded p-4">
-                <p>
-                  LC Energia si impegna a fornire soluzioni efficaci e conformi
-                  alle normative vigenti, garantendo il comfort acustico degli
-                  ambienti.
-                </p>
-              </div>
-            </div>
-            <div className="testimonial-item text-center">
-              <div className="testimonial-text text-center rounded p-4">
-                <p>
-                  La nostra esperienza nel settore acustico ci consente di
-                  assistere i clienti in ogni fase del processo, dalla
-                  progettazione alla certificazione finale.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div
-            className="text-center mx-auto mb-5 wow fadeInUp"
-            data-wow-delay="0.1s"
-            style={{ maxWidth: 600 }}
-          >
-            {/* <img src="img/natural8.png" alt="Vantaggi" className="img-fluid mt-2" style="max-width: 80%; height: auto;"> */}
-          </div>
+          <ScrollableCardList items={cardItems} />
         </div>
       </div>
-      {/* Testimonial End */}
     </>
   );
 };
