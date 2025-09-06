@@ -2,7 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
-const Spinner = ({ isLoading }) => {
+const Spinner = ({ isLoading }: { isLoading: boolean }) => {
   return (
     <AnimatePresence>
       {isLoading && (

@@ -1,8 +1,21 @@
 'use client';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { motion, Variants } from 'framer-motion';
+import Image, { StaticImageData } from 'next/image';
 
-const testimonials = [
+interface ImageTestimonial {
+  type: 'image';
+  src: string | StaticImageData;
+  alt: string;
+}
+
+interface TextTestimonial {
+  type: 'text';
+  content: string;
+}
+
+type TestimonialItem = ImageTestimonial | TextTestimonial;
+
+const testimonials: TestimonialItem[] = [
   { type: 'image', src: "/img/logo.png", alt: "LC Energia Logo" },
   { type: 'text', content: "Energia pulita per un futuro sostenibile." },
   { type: 'image', src: "/img/ecoplus.png", alt: "Ecoplus Logo" },
@@ -22,7 +35,7 @@ const testimonials = [
 const Testimonial = () => {
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
-  const marqueeVariants = {
+  const marqueeVariants: Variants = {
     animate: {
       x: [0, -1920], // Adjust this value based on the total width of your content
       transition: {

@@ -4,7 +4,7 @@ import ScrollableCardList from '@/components/ScrollableCardList';
 
 const Page = () => {
   const cardItems = [
-    <div>
+    <div key="competenze">
       <h5 className="mb-3">Competenze Specifiche</h5>
       <p>È fondamentale avere esperienza e abilitazioni come:</p>
       <ul className="text-start">
@@ -13,7 +13,7 @@ const Page = () => {
         <li>Leed certificator.</li>
       </ul>
     </div>,
-    <div>
+    <div key="strumenti">
       <h5 className="mb-3">Strumenti e Incentivi</h5>
       <p>
         Numerosi strumenti tecnici e finanziari sono oggi a
@@ -23,7 +23,7 @@ const Page = () => {
         governativi.
       </p>
     </div>,
-    <div>
+    <div key="supporto">
       <p>
         LC Energia offre supporto e consulenza per orientarsi nel
         panorama degli incentivi e realizzare progetti di efficienza

@@ -2,10 +2,8 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-
-// 1. Crear versiones de los componentes de react-bootstrap que aceptan animaciones
-const MotionNav_Link = motion(Nav.Link);
-const MotionNavDropdown_Item = motion(NavDropdown.Item);
+import Link from 'next/link';
+import { FaArrowRight } from 'react-icons/fa';
 
 const CustomNavbar = () => {
   return (
@@ -21,33 +19,37 @@ const CustomNavbar = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto p-4 p-lg-0">
           
-          {/* 2. Usar los nuevos componentes animados directamente */}
-          <MotionNav_Link href="/" whileHover={{ color: '#0d6efd' }} transition={{ duration: 0.2 }}>Home</MotionNav_Link>
-          <MotionNav_Link href="/azienda" whileHover={{ color: '#0d6efd' }} transition={{ duration: 0.2 }}>Azienda</MotionNav_Link>
+          <Nav.Link as={Link} href="/"><motion.span whileHover={{ color: '#0d6efd' }} transition={{ duration: 0.2 }}>Home</motion.span></Nav.Link>
+          <Nav.Link as={Link} href="/azienda"><motion.span whileHover={{ color: '#0d6efd' }} transition={{ duration: 0.2 }}>Azienda</motion.span></Nav.Link>
 
           <NavDropdown title="Progettazione" id="progettazione-dropdown">
-            <MotionNavDropdown_Item href="/progettazione-e-consulenza-tecnica" whileHover={{ x: 5, backgroundColor: '#e9ecef' }}>Progettazione e consulenza tecnica</MotionNavDropdown_Item>
-            <MotionNavDropdown_Item href="/contabilizzazione-calore-impianti-termici-centralizzati" whileHover={{ x: 5, backgroundColor: '#e9ecef' }}>Contabilizzazione e ripartizione del calore</MotionNavDropdown_Item>
-            <MotionNavDropdown_Item href="/progettazione-antincendio" whileHover={{ x: 5, backgroundColor: '#e9ecef' }}>Progettazione Antincendio</MotionNavDropdown_Item>
-            <MotionNavDropdown_Item href="/progettazione-acustica" whileHover={{ x: 5, backgroundColor: '#e9ecef' }}>Progettazione Acustica</MotionNavDropdown_Item>
-            <MotionNavDropdown_Item href="/progettare-il-risparmio-energetico" whileHover={{ x: 5, backgroundColor: '#e9ecef' }}>Progettare il risparmio energetico</MotionNavDropdown_Item>
-            <MotionNavDropdown_Item href="/impianti-geotermici" whileHover={{ x: 5, backgroundColor: '#e9ecef' }}>Impianti Geotermici</MotionNavDropdown_Item>
+            <NavDropdown.Item as={Link} href="/progettazione-e-consulenza-tecnica"><motion.span whileHover={{ x: 5 }}>Progettazione e consulenza tecnica</motion.span></NavDropdown.Item>
+            <NavDropdown.Item as={Link} href="/contabilizzazione-calore-impianti-termici-centralizzati"><motion.span whileHover={{ x: 5 }}>Contabilizzazione e ripartizione del calore</motion.span></NavDropdown.Item>
+            <NavDropdown.Item as={Link} href="/progettazione-antincendio"><motion.span whileHover={{ x: 5 }}>Progettazione Antincendio</motion.span></NavDropdown.Item>
+            <NavDropdown.Item as={Link} href="/progettazione-acustica"><motion.span whileHover={{ x: 5 }}>Progettazione Acustica</motion.span></NavDropdown.Item>
+            <NavDropdown.Item as={Link} href="/progettare-il-risparmio-energetico"><motion.span whileHover={{ x: 5 }}>Progettare il risparmio energetico</motion.span></NavDropdown.Item>
+            <NavDropdown.Item as={Link} href="/impianti-geotermici"><motion.span whileHover={{ x: 5 }}>Impianti Geotermici</motion.span></NavDropdown.Item>
           </NavDropdown>
 
           <NavDropdown title="Impianti" id="impianti-dropdown">
-            <MotionNavDropdown_Item href="/impianti-fotovoltaici" whileHover={{ x: 5, backgroundColor: '#e9ecef' }}>Impianti Fotovoltaici</MotionNavDropdown_Item>
-            <MotionNavDropdown_Item href="/stazioni-di-ricarica" whileHover={{ x: 5, backgroundColor: '#e9ecef' }}>Stazioni di Ricarica</MotionNavDropdown_Item>
+            <NavDropdown.Item as={Link} href="/impianti-fotovoltaici"><motion.span whileHover={{ x: 5 }}>Impianti Fotovoltaici</motion.span></NavDropdown.Item>
+            <NavDropdown.Item as={Link} href="/stazioni-di-ricarica"><motion.span whileHover={{ x: 5 }}>Stazioni di Ricarica</motion.span></NavDropdown.Item>
           </NavDropdown>
 
           <NavDropdown title="Studio" id="studio-dropdown">
-            <MotionNavDropdown_Item href="/riqualificazione-di-centrali-termiche-esistenti" whileHover={{ x: 5, backgroundColor: '#e9ecef' }}>Diagnosi Energetica e Riqualificazione Centrali Termiche</MotionNavDropdown_Item>
+            <NavDropdown.Item as={Link} href="/riqualificazione-di-centrali-termiche-esistenti"><motion.span whileHover={{ x: 5 }}>Diagnosi Energetica e Riqualificazione Centrali Termiche</motion.span></NavDropdown.Item>
           </NavDropdown>
 
-          <MotionNav_Link href="/accrediti" whileHover={{ color: '#0d6efd' }} transition={{ duration: 0.2 }}>Accrediti</MotionNav_Link>
+          <Nav.Link as={Link} href="/accrediti"><motion.span whileHover={{ color: '#0d6efd' }} transition={{ duration: 0.2 }}>Accrediti</motion.span></Nav.Link>
         </Nav>
-        <motion.a href="/contact" className="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          Richiedi un preventivo<i className="fa fa-arrow-right ms-3"></i>
-        </motion.a>
+        <Link href="/contact" passHref legacyBehavior>
+          <motion.a className="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <span className="d-flex align-items-center">
+              Richiedi un preventivo
+              <FaArrowRight className="ms-3" />
+            </span>
+          </motion.a>
+        </Link>
       </Navbar.Collapse>
     </Navbar>
   );

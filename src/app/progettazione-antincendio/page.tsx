@@ -4,15 +4,15 @@ import InfoCarousel from '@/components/InfoCarousel';
 
 const Page = () => {
   const carouselItems = [
-    <div>
+    <div key="idranti">
       <h5 className="mb-3">Impianti a Idranti</h5>
       <p>Progettazione di reti idranti interne ed esterne, conformi alle normative UNI, per una protezione antincendio efficace e affidabile.</p>
     </div>,
-    <div>
+    <div key="sprinkler">
       <h5 className="mb-3">Impianti Sprinkler</h5>
       <p>Sistemi automatici di estinzione a pioggia (sprinkler) per il controllo rapido degli incendi in ambienti civili e industriali.</p>
     </div>,
-    <div>
+    <div key="evacuatori">
       <h5 className="mb-3">Evacuatori di Fumo e Calore</h5>
       <p>Progettazione di sistemi per l’evacuazione forzata o naturale di fumo e calore, essenziali per la sicurezza delle persone e delle strutture.</p>
     </div>

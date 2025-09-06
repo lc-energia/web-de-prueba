@@ -1,6 +1,9 @@
 'use client';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import Image from 'next/image';
+
+const MotionImage = motion(Image);
 
 const About = () => {
   const containerRef = useRef(null);
@@ -37,11 +40,12 @@ const About = () => {
             style={{ minHeight: '400px' }}
           >
             <div className="position-relative h-100">
-              <motion.img 
-                className="position-absolute img-fluid w-100 h-100"
+              <MotionImage
+                className="position-absolute img-fluid"
                 src="/img/1Trabajador campo paneles solares.jpg" 
                 style={{ objectFit: 'cover', y }}
-                alt="" 
+                alt="Trabajador en campo de paneles solares"
+                fill
               />
             </div>
           </div>

@@ -1,9 +1,10 @@
 'use client';
 import { useEffect } from 'react';
-import { motion, useInView, useMotionValue, useSpring, animate } from 'framer-motion';
+import { motion, useMotionValue, useSpring, animate } from 'framer-motion';
+import IconMapper from './IconMapper';
 
 // Componente reutilizable para el contador animado
-function AnimatedCounter({ value }) {
+function AnimatedCounter({ value }: { value: number }) {
   const count = useMotionValue(0);
   const rounded = useSpring(count, { stiffness: 100, damping: 30 });
 
@@ -36,7 +37,7 @@ function AnimatedCounter({ value }) {
 const Feature = () => {
   const featureVariants = {
     hidden: { y: 50, opacity: 0 },
-    visible: (i) => ({
+    visible: (i: number) => ({
       y: 0,
       opacity: 1,
       transition: {
@@ -90,10 +91,11 @@ const Feature = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              whileHover={{ y: -10, transition: { type: 'spring', stiffness: 300 } }}
             >
               <div className="d-flex align-items-center mb-4">
-                <div className="btn-lg-square bg-primary rounded-circle me-3">
-                  <i className={`fa ${feature.icon} text-white`}></i>
+                <div className="btn-lg-square bg-primary rounded-circle me-3 d-flex align-items-center justify-content-center">
+                  <IconMapper iconName={feature.icon} className="text-white" />
                 </div>
                 <div className="d-flex align-items-baseline">
                   <AnimatedCounter value={feature.count} />

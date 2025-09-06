@@ -4,15 +4,15 @@ import ScrollableCardList from '@/components/ScrollableCardList';
 
 const Page = () => {
   const cardItems = [
-    <div>
+    <div key="esperienza">
       <h5 className="mb-3">Esperienza</h5>
       <p>Oltre 25 anni di esperienza nel campo della consulenza, progettazione e realizzazione impiantistica civile e industriale.</p>
     </div>,
-    <div>
+    <div key="aggiornamento">
       <h5 className="mb-3">Aggiornamento</h5>
-      <p>Continuo e sistematico aggiornamento dei nostri tecnici con specifici programmi di formazione per fornire soluzioni all'avanguardia.</p>
+      <p>Continuo e sistematico aggiornamento dei nostri tecnici con specifici programmi di formazione per fornire soluzioni all&apos;avanguardia.</p>
     </div>,
-    <div>
+    <div key="tecnologia">
       <h5 className="mb-3">Tecnologia</h5>
       <p>Proponiamo soluzioni tecnologiche innovative, integrate con la struttura architettonica e nel pieno rispetto delle normative di settore.</p>
     </div>

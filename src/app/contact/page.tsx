@@ -1,6 +1,7 @@
 'use client';
 import PageHeader from '@/components/PageHeader';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const Page = () => {
   return (
@@ -57,9 +58,11 @@ const Page = () => {
                 className="mb-5"
                 style={{ maxWidth: 600 }}
               >
-                <img
+                <Image
                   src="/img/natural5.png"
-                  alt="Vantaggi"
+                  alt="Illustrazione di energia pulita e sostenibilità"
+                  width={600}
+                  height={400}
                   className="img-fluid mt-2"
                   style={{ maxWidth: "100%", height: "auto" }}
                 />

@@ -4,15 +4,15 @@ import InfoCarousel from '@/components/InfoCarousel';
 
 const Page = () => {
   const carouselItems = [
-    <div>
+    <div key="diagnosi">
       <h5 className="mb-3">Diagnosi Energetica</h5>
       <p>Identifichiamo le criticità del sistema edificio/impianto attraverso analisi dettagliate e software di calcolo per proporre soluzioni sostenibili.</p>
     </div>,
-    <div>
+    <div key="riqualificazione">
       <h5 className="mb-3">Riqualificazione Centrali Termiche</h5>
       <p>Proponiamo interventi di riqualificazione per migliorare l’efficienza, ridurre i consumi e adeguare gli impianti alle normative vigenti.</p>
     </div>,
-    <div>
+    <div key="soluzioni">
       <h5 className="mb-3">Soluzioni Tecnico-Economiche</h5>
       <p>Valutiamo e proponiamo soluzioni che bilanciano l’efficienza energetica con la sostenibilità economica dell’investimento.</p>
     </div>

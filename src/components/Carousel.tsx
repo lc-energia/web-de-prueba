@@ -2,30 +2,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { wrap } from 'popmotion';
-
-const slides = [
-  {
-    imgSrc: "/img/2.png",
-    titleComponent: <><span style={{ color: '#F49918' }}>LC</span><span className="text-primary">Energia</span>, al tuo fianco.</>,
-    text: "L’esperienza e lo studio continuo delle nuove tecnologie ci permettono di fornire le soluzioni più avanzate per raggiungere la miglior efficienza ed efficacia.",
-    link: "/azienda"
-  },
-  {
-    imgSrc: "/img/3.png",
-    title: "Pionieri dell'Energia Solare e Rinnovabile",
-    text: "Ogni progetto è studiato su misura per soddisfare le tue esigenze. Scopri le migliori soluzioni per il tuo impianto, offriamo consulenza e supporto tecnico a 360 gradi garantendo la massima qualità in ogni dettaglio",
-    link: "/impianti-fotovoltaici"
-  },
-  {
-    imgSrc: "/img/1.png",
-    titleComponent: <><span style={{ color: '#F49918' }}>LC</span><span className="text-primary">Energia</span></>,
-    text: <><span>Innovazione,</span> Esperienza, <span>Eccellenza.</span></>,
-    link: "/riqualificazione-di-centrali-termiche-esistenti"
-  }
-];
+import Image from 'next/image';
+import { slides } from '@/data/carousel-data';
+import IconMapper from './IconMapper';
 
 const variants = {
-  enter: (direction) => ({
+  enter: (direction: number) => ({
     x: direction > 0 ? 1000 : -1000,
     opacity: 0
   }),
@@ -34,7 +16,7 @@ const variants = {
     x: 0,
     opacity: 1
   },
-  exit: (direction) => ({
+  exit: (direction: number) => ({
     zIndex: 0,
     x: direction < 0 ? 1000 : -1000,
     opacity: 0
@@ -42,13 +24,13 @@ const variants = {
 };
 
 const swipeConfidenceThreshold = 10000;
-const swipePower = (offset, velocity) => Math.abs(offset) * velocity;
+const swipePower = (offset: number, velocity: number) => Math.abs(offset) * velocity;
 
 const Carousel = () => {
-  const [[page, direction], setPage] = useState([0, 0]);
+  const [[page, direction], setPage] = useState<[number, number]>([0, 0]);
   const imageIndex = wrap(0, slides.length, page);
 
-  const paginate = (newDirection) => {
+  const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
   };
 
@@ -76,7 +58,14 @@ const Carousel = () => {
           }}
           className="position-absolute w-100 h-100"
         >
-          <img className="img-fluid w-100 h-100" src={slides[imageIndex].imgSrc} alt="" style={{ objectFit: 'cover' }} />
+          <Image
+            src={slides[imageIndex].imgSrc}
+            alt="Carousel image"
+            fill
+            priority
+            style={{ objectFit: 'cover' }}
+            className="img-fluid"
+          />
           <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style={{ background: 'rgba(0, 0, 0, .5)' }}>
             <div className="container">
               <div className="row justify-content-start">
@@ -98,10 +87,10 @@ const Carousel = () => {
       </AnimatePresence>
 
       <div className="position-absolute top-50 start-0 translate-middle-y ms-3" style={{ zIndex: 2 }}>
-        <button className="btn btn-primary rounded-circle" style={{ width: '45px', height: '45px' }} onClick={() => paginate(-1)}><i className="fa fa-chevron-left"></i></button>
+        <button className="btn btn-primary rounded-circle" style={{ width: '45px', height: '45px' }} onClick={() => paginate(-1)}><IconMapper iconName="fa-chevron-left" /></button>
       </div>
       <div className="position-absolute top-50 end-0 translate-middle-y me-3" style={{ zIndex: 2 }}>
-        <button className="btn btn-primary rounded-circle" style={{ width: '45px', height: '45px' }} onClick={() => paginate(1)}><i className="fa fa-chevron-right"></i></button>
+        <button className="btn btn-primary rounded-circle" style={{ width: '45px', height: '45px' }} onClick={() => paginate(1)}><IconMapper iconName="fa-chevron-right" /></button>
       </div>
 
       <div className="position-absolute bottom-0 start-50 translate-middle-x mb-4 d-flex" style={{ zIndex: 2 }}>

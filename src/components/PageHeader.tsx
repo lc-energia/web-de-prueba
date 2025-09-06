@@ -1,4 +1,6 @@
 
+import Link from 'next/link';
+
 interface PageHeaderProps {
   title: string;
   breadcrumb: string;
@@ -13,15 +15,15 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, breadcrumb }) => {
   return (
     <div className="container-fluid page-header py-5 mb-5" style={headerStyle}>
       <div className="container py-5">
-        <h1 className="display-3 text-white mb-3 animated slideInDown">
+        <h1 className="display-3 text-white mb-3">
           {title}
         </h1>
-        <nav aria-label="breadcrumb animated slideInDown">
+        <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <a className="text-white" href="/">
+              <Link className="text-white" href="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li
               className="breadcrumb-item text-white active"

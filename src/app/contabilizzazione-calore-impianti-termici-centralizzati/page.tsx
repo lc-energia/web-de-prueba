@@ -4,15 +4,15 @@ import ScrollableCardList from '@/components/ScrollableCardList';
 
 const Page = () => {
   const cardItems = [
-    <div>
+    <div key="diretta">
       <h5 className="mb-3">Contabilizzazione Diretta</h5>
       <p>Installazione di contatori di calore per misurare l’energia termica volontaria prelevata dall’unità immobiliare.</p>
     </div>,
-    <div>
+    <div key="indiretta">
       <h5 className="mb-3">Contabilizzazione Indiretta</h5>
       <p>Applicazione di ripartitori di calore sui singoli corpi scaldanti e installazione di totalizzatori di calore.</p>
     </div>,
-    <div>
+    <div key="ripartizione">
       <h5 className="mb-3">Ripartizione Spese</h5>
       <p>La spesa totale per il servizio di riscaldamento viene ripartita in base ai consumi registrati, secondo la norma UNI 10200.</p>
     </div>

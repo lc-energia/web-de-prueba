@@ -1,7 +1,21 @@
 
+'use client';
 import PageHeader from '@/components/PageHeader';
+import { motion } from 'framer-motion';
 
 const Page = () => {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.5,
+      },
+    }),
+  };
+
   return (
     <>
       <PageHeader
@@ -12,10 +26,14 @@ const Page = () => {
       {/* Team Start */}
       <div className="container-xxl py-5">
         <div className="container">
-          <div
-            className="text-center mx-auto mb-5 wow fadeInUp"
-            data-wow-delay="0.1s"
+          <motion.div
+            className="text-center mx-auto mb-5"
             style={{ maxWidth: 600 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={itemVariants}
+            custom={0}
           >
             <h6 className="text-primary">Progettazione e consulenza tecnica</h6>
             <p className="mb-4">
@@ -24,11 +42,15 @@ const Page = () => {
               svolgimento dei lavori e garantire la funzionalità del prodotto
               finale.
             </p>
-          </div>
+          </motion.div>
           <div className="row g-4">
-            <div
-              className="col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay="0.5s"
+            <motion.div
+              className="col-lg-4 col-md-6"
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={1}
             >
               <div className="team-item rounded overflow-hidden">
                 <div className="p-4 text-center">
@@ -41,10 +63,14 @@ const Page = () => {
                   </ul>
                 </div>
               </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay="0.3s"
+            </motion.div>
+            <motion.div
+              className="col-lg-4 col-md-6"
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={2}
             >
               <div className="team-item rounded overflow-hidden">
                 <div className="p-4 text-center">
@@ -57,10 +83,14 @@ const Page = () => {
                   </p>
                 </div>
               </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay="0.3s"
+            </motion.div>
+            <motion.div
+              className="col-lg-4 col-md-6"
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={3}
             >
               <div className="team-item rounded overflow-hidden">
                 <div className="p-4 text-center">
@@ -79,10 +109,14 @@ const Page = () => {
                   </ul>
                 </div>
               </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay="0.1s"
+            </motion.div>
+            <motion.div
+              className="col-lg-4 col-md-6"
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={4}
             >
               <div className="team-item rounded overflow-hidden">
                 <div className="p-4 text-center">
@@ -113,10 +147,14 @@ const Page = () => {
                   </ul>
                 </div>
               </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay="0.7s"
+            </motion.div>
+            <motion.div
+              className="col-lg-4 col-md-6"
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={5}
             >
               <div className="team-item rounded overflow-hidden">
                 <div className="p-4 text-center">
@@ -139,10 +177,14 @@ const Page = () => {
                   </ul>
                 </div>
               </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay="0.9s"
+            </motion.div>
+            <motion.div
+              className="col-lg-4 col-md-6"
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={6}
             >
               <div className="team-item rounded overflow-hidden">
                 <div className="p-4 text-center">
@@ -154,7 +196,7 @@ const Page = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 'use client';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
+import { FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -21,30 +22,30 @@ const Footer = () => {
                 whileHover={{ scale: 1.1, backgroundColor: '#0077b5', borderColor: '#0077b5' }}
                 whileTap={{ scale: 0.95 }}
               >
-                <i className="fab fa-linkedin-in"></i>
+                <FaLinkedinIn />
               </motion.a>
             </div>
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text-white mb-4">Indirizzo</h5>
             <motion.p className="mb-2" whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
-              <a href="https://maps.app.goo.gl/q5m7vkLzc2w2c3wz8">
-                <i className="fa fa-map-marker-alt me-3"></i>Via della Valle 39, 20841, Carate Brianza (MB)
+              <a href="https://maps.app.goo.gl/q5m7vkLzc2w2c3wz8" className="d-flex align-items-center">
+                <FaMapMarkerAlt className="me-3" />Via della Valle 39, 20841, Carate Brianza (MB)
               </a>
             </motion.p>
             <motion.p className="mb-2" whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
-              <a href="tel:0362992142" className="text-white text-decoration-none">
-                <i className="fa fa-phone-alt me-3"></i>0362992142
+              <a href="tel:0362992142" className="text-white text-decoration-none d-flex align-items-center">
+                <FaPhoneAlt className="me-3" />0362992142
               </a>
             </motion.p>
             <motion.p className="mb-2" whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
-              <a href="mailto:info@lc-energia.it" className="text-white text-decoration-none">
-                <i className="fa fa-envelope me-3"></i>info@lc-energia.it
+              <a href="mailto:info@lc-energia.it" className="text-white text-decoration-none d-flex align-items-center">
+                <FaEnvelope className="me-3" />info@lc-energia.it
               </a>
             </motion.p>
             <motion.p className="mb-2" whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
-              <a href="mailto:info@lc-energia.it" className="text-white text-decoration-none">
-                <i className=""></i>P.iva 04115680136
+              <a href="#" className="text-white text-decoration-none">
+                P.iva 04115680136
               </a>
             </motion.p>
           </div>

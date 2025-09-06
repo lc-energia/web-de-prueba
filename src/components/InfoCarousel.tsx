@@ -2,9 +2,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { wrap } from 'popmotion';
+import IconMapper from './IconMapper';
 
 const variants = {
-  enter: (direction) => ({
+  enter: (direction: number) => ({
     x: direction > 0 ? 500 : -500,
     opacity: 0
   }),
@@ -13,18 +14,18 @@ const variants = {
     x: 0,
     opacity: 1
   },
-  exit: (direction) => ({
+  exit: (direction: number) => ({
     zIndex: 0,
     x: direction < 0 ? 500 : -500,
     opacity: 0
   })
 };
 
-const InfoCarousel = ({ items }) => {
-  const [[page, direction], setPage] = useState([0, 0]);
+const InfoCarousel = ({ items }: { items: React.ReactNode[] }) => {
+  const [[page, direction], setPage] = useState<[number, number]>([0, 0]);
   const itemIndex = wrap(0, items.length, page);
 
-  const paginate = (newDirection) => {
+  const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
   };
 
@@ -50,10 +51,10 @@ const InfoCarousel = ({ items }) => {
       </AnimatePresence>
 
       <div className="position-absolute top-50 start-0 translate-middle-y ms-n5" style={{ zIndex: 2 }}>
-        <button className="btn btn-primary rounded-circle" style={{ width: '45px', height: '45px' }} onClick={() => paginate(-1)}><i className="fa fa-chevron-left"></i></button>
+        <button className="btn btn-primary rounded-circle" style={{ width: '45px', height: '45px' }} onClick={() => paginate(-1)}><IconMapper iconName="fa-chevron-left" /></button>
       </div>
       <div className="position-absolute top-50 end-0 translate-middle-y me-n5" style={{ zIndex: 2 }}>
-        <button className="btn btn-primary rounded-circle" style={{ width: '45px', height: '45px' }} onClick={() => paginate(1)}><i className="fa fa-chevron-right"></i></button>
+        <button className="btn btn-primary rounded-circle" style={{ width: '45px', height: '45px' }} onClick={() => paginate(1)}><IconMapper iconName="fa-chevron-right" /></button>
       </div>
     </div>
   );

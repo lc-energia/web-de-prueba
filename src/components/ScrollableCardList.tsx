@@ -114,7 +114,7 @@ function StyleSheet() {
     )
 }
 
-const ScrollableCardList = ({ items }) => {
+const ScrollableCardList = ({ items }: { items: React.ReactNode[] }) => {
     const ref = useRef(null);
     const { scrollXProgress } = useScroll({ container: ref });
     const maskImage = useScrollOverflowMask(scrollXProgress);

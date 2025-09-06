@@ -4,15 +4,15 @@ import ScrollableCardList from '@/components/ScrollableCardList';
 
 const Page = () => {
   const cardItems = [
-    <div>
+    <div key="autoproduzione">
       <h5 className="mb-3">Autoproduzione Energetica</h5>
       <p>Riduci i tuoi consumi energetici producendo la tua energia elettrica. Un impianto fotovoltaico è un investimento che si ripaga nel tempo.</p>
     </div>,
-    <div>
+    <div key="accumulo">
       <h5 className="mb-3">Sistemi di Accumulo</h5>
       <p>Integra un sistema di accumulo per massimizzare l’autoconsumo e garantirti una riserva di energia anche durante le ore notturne.</p>
     </div>,
-    <div>
+    <div key="chiavi-in-mano">
       <h5 className="mb-3">Soluzioni Chiavi in Mano</h5>
       <p>Offriamo un servizio completo: dalla progettazione all’installazione, fino alla gestione delle pratiche burocratiche per gli incentivi statali.</p>
     </div>

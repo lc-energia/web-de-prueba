@@ -4,15 +4,15 @@ import ScrollableCardList from '@/components/ScrollableCardList';
 
 const Page = () => {
   const cardItems = [
-    <div>
+    <div key="stabile">
       <h5 className="mb-3">Energia Stabile e Continua</h5>
       <p>A differenza di altre fonti rinnovabili, la geotermia fornisce energia in modo costante, 24 ore su 24, 365 giorni all’anno.</p>
     </div>,
-    <div>
+    <div key="integrati">
       <h5 className="mb-3">Impianti Puri o Integrati</h5>
       <p>Realizziamo impianti geotermici puri o integrati con altri sistemi di produzione dell’energia per massimizzare l’efficienza.</p>
     </div>,
-    <div>
+    <div key="sostenibilita">
       <h5 className="mb-3">Sostenibilità e Risparmio</h5>
       <p>Un impianto geotermico riduce drasticamente le emissioni di CO2 e permette un notevole risparmio sui costi di riscaldamento e raffrescamento.</p>
     </div>

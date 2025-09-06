@@ -4,15 +4,15 @@ import ScrollableCardList from '@/components/ScrollableCardList';
 
 const Page = () => {
   const cardItems = [
-    <div>
+    <div key="impatto">
       <h5 className="mb-3">Valutazione Impatto Acustico</h5>
       <p>Analisi previsionale per nuove costruzioni o modifiche, per garantire il rispetto dei limiti di legge e il comfort acustico.</p>
     </div>,
-    <div>
+    <div key="requisiti">
       <h5 className="mb-3">Requisiti Acustici Passivi</h5>
       <p>Progettazione degli elementi costruttivi per assicurare l’isolamento acustico necessario tra diverse unità immobiliari.</p>
     </div>,
-    <div>
+    <div key="classificazione">
       <h5 className="mb-3">Classificazione Acustica</h5>
       <p>Determinazione della classe acustica degli edifici secondo le normative vigenti, un requisito fondamentale per la qualità edilizia.</p>
     </div>

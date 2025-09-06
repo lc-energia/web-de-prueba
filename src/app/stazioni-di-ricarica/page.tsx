@@ -4,15 +4,15 @@ import InfoCarousel from '@/components/InfoCarousel';
 
 const Page = () => {
   const carouselItems = [
-    <div>
+    <div key="integrazione">
       <h5 className="mb-3">Integrazione con Fotovoltaico</h5>
       <p>Progettiamo stazioni di ricarica che si integrano perfettamente con il tuo impianto fotovoltaico, per una mobilità 100% green e a costo zero.</p>
     </div>,
-    <div>
+    <div key="soluzioni">
       <h5 className="mb-3">Soluzioni per Privati e Aziende</h5>
       <p>Offriamo soluzioni su misura sia per l’installazione di wallbox domestiche sia per la realizzazione di stazioni di ricarica aziendali o pubbliche.</p>
     </div>,
-    <div>
+    <div key="gestione">
       <h5 className="mb-3">Gestione Intelligente</h5>
       <p>Sistemi di gestione intelligente del carico per ottimizzare i tempi di ricarica e proteggere la rete elettrica dell’edificio.</p>
     </div>
