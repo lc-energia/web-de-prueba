@@ -53,7 +53,7 @@ const Feature = () => {
                 <div className="btn-lg-square bg-primary rounded-circle me-3">
                   <i className={`fa ${feature.icon} text-white`}></i>
                 </div>
-                <Counter from={0} to={parseInt(feature.count)} suffix={feature.suffix} />
+                <Counter from={0} to={parseInt(feature.count)} />
                 <p className="mb-0">{feature.suffix}</p>
               </div>
               <h5 className="mb-3">{feature.title}</h5>

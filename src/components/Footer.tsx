@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -19,10 +20,10 @@ const Footer = () => {
           </motion.div>
           <motion.div className="col-lg-3 col-md-6" variants={fadeIn('up', 0.4)} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <h5 className="text-white mb-4">Link Veloci</h5>
-            <a className="btn btn-link" href="/">Home</a>
-            <a className="btn btn-link" href="/azienda">Chi Siamo</a>
-            <a className="btn btn-link" href="/">I Nostri Servizi</a>
-            <a className="btn btn-link" href="/accrediti">Accrediti</a>
+            <Link className="btn btn-link" href="/">Home</Link>
+            <Link className="btn btn-link" href="/azienda">Chi Siamo</Link>
+            <Link className="btn btn-link" href="/">I Nostri Servizi</Link>
+            <Link className="btn btn-link" href="/accrediti">Accrediti</Link>
           </motion.div>
           <motion.div className="col-lg-3 col-md-6" variants={fadeIn('up', 0.6)} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <h5 className="text-white mb-4">Contatti</h5>

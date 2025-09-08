@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { testimonialData } from '@/data/testimonial-data';
 
@@ -46,11 +45,7 @@ const NewTestimonial = () => {
                 exit="exit"
                 transition={{ duration: 0.5 }}
               >
-                {testimonialData[index].type === 'image' ? (
-                  <Image src={testimonialData[index].src} alt={testimonialData[index].alt} width={200} height={60} />
-                ) : (
-                  <p className="card-text fs-4">{testimonialData[index].text}</p>
-                )}
+                <p className="card-text fs-4">{testimonialData[index].text}</p>
               </motion.div>
             </AnimatePresence>
           </div>

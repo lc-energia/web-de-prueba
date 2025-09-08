@@ -16,7 +16,7 @@ const NewCarousel = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const goToSlide = (slideIndex) => {
+  const goToSlide = (slideIndex: number) => {
     setIndex(slideIndex);
   };
 

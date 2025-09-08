@@ -2,8 +2,8 @@
 import { useEffect, useRef } from 'react';
 import { animate, useInView } from 'framer-motion';
 
-const Counter = ({ from, to, suffix }) => {
-  const ref = useRef(null);
+const Counter = ({ from, to }: { from: number; to: number }) => {
+  const ref = useRef<HTMLHeadingElement>(null);
   const inView = useInView(ref, { once: true });
 
   useEffect(() => {

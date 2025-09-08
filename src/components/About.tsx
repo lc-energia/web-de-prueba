@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import FlippableCard from './FlippableCard';
+import Image from 'next/image';
 
 const About = () => {
   return (
@@ -50,7 +51,7 @@ const About = () => {
             style={{ minHeight: '400px' }}
           >
             <div className="position-relative h-100">
-              <img className="position-absolute img-fluid w-100 h-100" src="/img/1Trabajador campo paneles solares.jpg" style={{ objectFit: 'cover' }} alt="" />
+              <Image className="position-absolute img-fluid w-100 h-100" src="/img/1Trabajador campo paneles solares.jpg" style={{ objectFit: 'cover' }} alt="" layout="fill" />
             </div>
           </motion.div>
         </div>

@@ -2,6 +2,7 @@
 'use client';
 
 import PageHeader from '@/components/PageHeader';
+import Image from 'next/image';
 
 const Page = () => {
   return (
@@ -53,10 +54,12 @@ const Page = () => {
                 data-wow-delay="0.1s"
                 style={{ maxWidth: 600 }}
               >
-                <img
+                <Image
                   src="/img/natural5.png"
                   alt="Vantaggi"
                   className="img-fluid mt-2"
+                  width={600}
+                  height={400}
                   style={{ maxWidth: "100%", height: "auto" }}
                 />
               </div>

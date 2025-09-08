@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const FlippableCard = ({ text }) => {
+const FlippableCard = ({ text }: { text: string }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const cardVariants = {

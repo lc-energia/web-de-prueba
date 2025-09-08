@@ -1,5 +1,6 @@
 
 import PageHeader from '@/components/PageHeader';
+import Link from 'next/link';
 
 const Page = () => {
   return (
@@ -14,7 +15,7 @@ const Page = () => {
               <i className="bi bi-shield-fill-check display-1 text-primary" />
               <h3 className=" mb-0">Accedriti LC Energia</h3>
               <h4 className="mb-1">
-                Iscritti all'ordine degli Ingegneri e all'albo Provinciale dei
+                Iscritti all&apos;ordine degli Ingegneri e all&apos;albo Provinciale dei
                 Periti Industriali.
               </h4>
               <div
@@ -29,16 +30,16 @@ const Page = () => {
                 <br />
                 Iscritti negli elenchi del Ministero degli Interni dei
                 professionisti abilitati alla progettazione antincendio ed
-                all'estensione di perizie giurate di cui alla Legge 818/84.
+                all&apos;estensione di perizie giurate di cui alla Legge 818/84.
                 <br />
                 Verificatori in materia di sicurezza degli impianti ai sensi
                 della Legge 46/90.
                 <br />
                 Consulenti tecnici del Tribunale di Como, Monza, Lecco.
               </p>
-              <a className="btn btn-primary rounded-pill py-3 px-5" href="/">
+              <Link className="btn btn-primary rounded-pill py-3 px-5" href="/">
                 Torna alla homepage
-              </a>
+              </Link>
             </div>
           </div>
         </div>
