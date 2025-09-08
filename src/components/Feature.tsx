@@ -1,19 +1,10 @@
 'use client';
 import { motion } from 'framer-motion';
+import { fadeIn } from '@/variants';
+
+import Counter from './Counter';
 
 const Feature = () => {
-  const featureVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: (i: number) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        delay: i * 0.2,
-        duration: 0.5,
-      },
-    }),
-  };
-
   const features = [
     {
       icon: "fa-users",
@@ -53,17 +44,17 @@ const Feature = () => {
             <motion.div 
               key={i}
               className="col-md-6 col-lg-3"
-              custom={i}
-              variants={featureVariants}
+              variants={fadeIn('up', i * 0.2)}
               initial="hidden"
-              whileInView="visible"
+              whileInView="show"
               viewport={{ once: true }}
             >
               <div className="d-flex align-items-center mb-4">
                 <div className="btn-lg-square bg-primary rounded-circle me-3">
                   <i className={`fa ${feature.icon} text-white`}></i>
                 </div>
-                <h1 className="mb-0" data-toggle="counter-up">{feature.count}</h1><p className="mb-0">{feature.suffix}</p>
+                <Counter from={0} to={parseInt(feature.count)} suffix={feature.suffix} />
+                <p className="mb-0">{feature.suffix}</p>
               </div>
               <h5 className="mb-3">{feature.title}</h5>
               <span>{feature.description}</span>

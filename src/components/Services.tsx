@@ -1,7 +1,10 @@
 'use client';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { fadeIn } from '@/variants';
 
 const Services = () => {
+  const [filter, setFilter] = useState('*');
 
   const services = [
     {
@@ -69,76 +72,63 @@ const Services = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5 }
-    }
-  };
+  const filteredServices = filter === '*' ? services : services.filter(service => service.filter === filter);
 
   return (
     <div className="container-xxl py-5">
       <div className="container">
         <motion.div 
           className="text-center mx-auto mb-5"
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
+          variants={fadeIn('up', 0.1)}
+          initial="hidden"
+          whileInView={"show"}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
           style={{ maxWidth: '600px' }}
         >
           <h1 className="text-primary">Our Services</h1>
         </motion.div>
         <motion.div 
           className="row mt-n2"
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
+          variants={fadeIn('up', 0.2)}
+          initial="hidden"
+          whileInView={"show"}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
         >
           <div className="col-12 text-center">
-            <ul className="list-inline mb-5" id="portfolio-flters">
-              <li className="mx-2" data-filter=".third">Progettazione</li>
-              <li className="mx-2" data-filter=".second">Impianti</li>
-              <li className="mx-2" data-filter=".first">Studio</li>
+            <ul className="list-inline mb-5">
+              <li className="mx-2" onClick={() => setFilter('*')}>All</li>
+              <li className="mx-2" onClick={() => setFilter('third')}>Progettazione</li>
+              <li className="mx-2" onClick={() => setFilter('second')}>Impianti</li>
+              <li className="mx-2" onClick={() => setFilter('first')}>Studio</li>
             </ul>
           </div>
         </motion.div>
         <motion.div 
-          className="row g-4 portfolio-container"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          className="row g-4"
         >
-          {services.map((service, index) => (
-            <motion.div 
-              key={index} 
-              className={`col-md-6 col-lg-4 portfolio-item ${service.filter}`}
-              variants={itemVariants}
-            >
-              <div className="service-item rounded overflow-hidden">
-                <div className="position-relative p-4">
-                  <div className="service-icon">
-                    <i className={`fa ${service.icon} fa-3x`}></i>
+          <AnimatePresence>
+            {filteredServices.map((service, index) => (
+              <motion.div 
+                key={index} 
+                className={`col-md-6 col-lg-4`}
+                variants={fadeIn('up', index * 0.1)}
+                initial="hidden"
+                animate="show"
+                exit="hidden"
+              >
+                <div className="service-item rounded overflow-hidden">
+                  <div className="position-relative p-4">
+                    <div className="service-icon">
+                      <i className={`fa ${service.icon} fa-3x`}></i>
+                    </div>
+                    <h4 className="mb-3">{service.title}</h4>
+                    <p>{service.description}</p>
+                    <a className="small fw-medium" href={service.link}>Read More<i className="fa fa-arrow-right ms-2"></i></a>
                   </div>
-                  <h4 className="mb-3">{service.title}</h4>
-                  <p>{service.description}</p>
-                  <a className="small fw-medium" href={service.link}>Read More<i className="fa fa-arrow-right ms-2"></i></a>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </motion.div>
       </div>
     </div>

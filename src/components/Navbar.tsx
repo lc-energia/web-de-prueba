@@ -1,10 +1,14 @@
+'use client';
 import Image from 'next/image';
+import { useSticky } from '@/hooks/useSticky';
 
 const Navbar = () => {
+  const isSticky = useSticky();
+
   return (
-    <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style={{ zIndex: 9999 }}>
+    <nav className={`navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 ${isSticky ? 'shadow-sm' : ''}`} style={{ zIndex: 9999, top: isSticky ? '0px' : '-100px' }}>
       <a href="/" className="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
-        <Image src="/img/favicon.png" alt="Logo" width={30} height={30} className="img-fluid" style={{ marginRight: '10px' }} />
+        <Image src="/img/favicon.png" alt="Logo" width={30} height={30} />
         <h2 className="m-0">
           <span style={{ color: '#F49918' }}>LC</span>
           <span className="text-primary">Energia</span>
