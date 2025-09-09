@@ -3,42 +3,7 @@ import PageHeader from '@/components/PageHeader';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import Image from 'next/image';
-
-// Data for the page sections
-const valuePropositions = [
-  {
-    content: "LC Energia vanta di personale qualificato e con grande esperienza nel settore della progettazione e realizzazione di impianti civili e industriali. L&apos;impegno dell&apos;azienda è volto a contribuire in prima linea agli obiettivi Europei e Nazionali per la decarbonizzazione e l&apos;efficientamento energetico. Per questo LC Energia, oltre a fornire consulenza e progettazione per gli impianti termici, si è specializzata nella realizzazione di impianti fotovoltaici sia nel settore civile che industriale."
-  },
-  {
-    content: "Sfruttando le nostre competenze operiamo sempre nel rispetto degli obblighi legislativi e normativi per fornire al cliente un servizio a regola d&apos;arte. Attraverso interventi di riqualificazione architettonica e impiantistica su diversi edifici nel campo industriale, civile, pubblico e nei processi produttivi, LC Energia permette ai suoi clienti di ottenere significativi risparmi energetici oltre a una miglior qualità di vita."
-  },
-  {
-    content: "Il successo di LC Energia deriva dalla corretta applicazione delle conoscenze tecniche e dall&apos;utilizzo razionale delle nuove tecnologie per la produzione di energia e la riduzione dei consumi. La società opera attraverso due principali settori operativi:",
-    list: [
-        "Consulenza tecnica e progettazione che include anche attività di prevenzione incendi, acustica e assistenza ai lavori.",
-        "Realizzazione di impianti ad alto profilo tecnologico per la produzione di energia elettrica e termica per l’abbattimento dei consumi energetici."
-    ]
-  },
-  {
-    content: "LC Energia si impegna a offrire soluzioni su misura per le esigenze specifiche dei clienti, garantendo risultati tangibili attraverso un percorso collaudato che include la diagnosi energetica, la valutazione degli interventi e la stima economica degli investimenti proposti. Grazie a un&apos;approfondita conoscenza del settore e alla competenza tecnica, LC Energia si posiziona come un partner affidabile per il raggiungimento degli obiettivi di efficienza energetica e sostenibilità."
-  }
-];
-
-const reasons = [
-  { icon: 'fa-solar-panel', title: 'Soluzioni efficienti, ottimizzazione dei sistemi', description: 'Ogni progetto/impianto è sviluppato dando priorità all&apos;affidabilità dei sistemi e al controllo dei costi di realizzazione ed esercizio.' },
-  { icon: 'fa-wind', title: 'Energia rinnovabile consapevole', description: 'Progettiamo il futuro sfruttando l&apos;apporto delle energie rinnovabili, nel rispetto delle normative e laddove risulta tecnicamente ed economicamente conveniente.' },
-  { icon: 'fa-lightbulb', title: 'Consulenza specializzata nell&apos;ambito della prevenzione incendi', description: 'Siamo specializzati nella redazione di attività ai fini dell&apos;ottenimento del Certificato di Prevenzione Incendi.' },
-  { icon: 'fa-headset', title: 'Supporto e consulenza nel campo dell&apos;acustica degli edifici', description: 'Offriamo una consulenza specifica per il settore acustico sia in ambito civile che industriale.' }
-];
-
-const teamMembers = [
-  { name: 'Colzani Roberto', role: 'Perito Industriale' },
-  { name: 'Colzani Luca', role: 'Ingegnere Energetico' },
-  { name: 'Ricchetti Lorenzo', role: 'Ingegnere Energetico' },
-  { name: 'Mauri Silvia', role: 'Ingegnere Edile' },
-  { name: 'Galtarossa Barbara', role: 'Amministrazione' },
-  { name: 'Colzani Eliana', role: 'Creativo Multidisciplinare' }
-];
+import { valuePropositions, reasons, teamMembers } from '@/data/azienda-data';
 
 const AziendaPage = () => {
   return (

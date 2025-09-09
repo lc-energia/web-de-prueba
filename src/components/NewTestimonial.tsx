@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { testimonialData } from '@/data/testimonial-data';
+import { testimonialData } from '@/data/carousel-data';
 
 const variants = {
   enter: {

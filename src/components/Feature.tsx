@@ -7,9 +7,9 @@ const Feature = () => {
   const features = [
     {
       icon: "fa-users",
-      count: "250",
+      count: "200",
       suffix: "+",
-      title: "Oltre 250 Progetti",
+      title: "Oltre 200 Progetti",
       description: "Progetti realizzati con successo, garantendo alta qualità e affidabilità."
     },
     {
@@ -27,7 +27,7 @@ const Feature = () => {
       description: "Energia prodotta per alimentare abitazioni e imprese."
     },
     {
-      icon: "fa-award",
+      icon: "fa-leaf",
       count: "1750",
       suffix: "T",
       title: "1750 Tonnellate di Co2 evitate",

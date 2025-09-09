@@ -66,8 +66,8 @@ const ServicePage = ({ service }: { service: ServiceData }) => {
         <div className="container-xxl py-5">
           <div className="container">
             <div className="text-center mx-auto mb-5" style={{ maxWidth: '600px' }}>
-              <h2 className="display-6 mb-4">Partners e Collaborazioni</h2>
-              <p className="lead">LC Energia collabora da anni con le migliori marche del settore, garantendo ai propri Clienti qualità e affidabilità dei prodotti installati.</p>
+              <h2 className="display-6 mb-4">{service.partnersTitle}</h2>
+              <p className="lead">{service.partnersIntroduction}</p>
             </div>
             <div className="row g-4 justify-content-center">
               {service.partners.map((partner, i) => (

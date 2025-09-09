@@ -8,6 +8,8 @@ export interface ServiceData {
     content: string;
     list?: string[];
   }[];
+  partnersTitle?: string;
+  partnersIntroduction?: string;
   partners?: {
     src: string;
     alt: string;
@@ -40,9 +42,9 @@ export const servicesData: { [key: string]: ServiceData } = {
     ],
   },
   'impianti-fotovoltaici': {
-    title: 'Impianto Fotovoltaico e Accumulo Elettrico',
+    title: 'Impianti Fotovoltaici',
     breadcrumb: 'Impianti Fotovoltaici',
-    introduction: 'Progettiamo e installiamo impianti fotovoltaici chiavi in mano per ridurre i consumi energetici grazie all’autoproduzione di energia elettrica.',
+    introduction: 'Progettiamo e installiamo impianti fotovoltaici \'chiavi in mano\'',
     sections: [
       {
         title: 'Valutazione Preliminare',
@@ -71,6 +73,8 @@ export const servicesData: { [key: string]: ServiceData } = {
         content: 'Il decreto legislativo 199/2021 ha stabilito nuovi obblighi che dovranno essere rispettati in merito all’utilizzo di energia prodotta da fonti rinnovabili negli stabili di nuova costruzione o soggetti a ristrutturazioni.',
       },
     ],
+    partnersTitle: 'PARTNERS e collaborazioni',
+    partnersIntroduction: 'LC Energia collabora da anni con le migliori marche del settore, garantendo ai propri Clienti qualità e affidabilità dei prodotti installati.',
     partners: [
       { src: '/img/image8.png', alt: 'Partner 1' },
       { src: '/img/image1.png', alt: 'Partner 2' },
@@ -154,7 +158,7 @@ export const servicesData: { [key: string]: ServiceData } = {
     sections: [
       {
         title: 'Tecnologia Avanzata',
-        content: 'Negli ultimi decenni, con l’avvento della tecnologia, è possibile misurare il calore effettivo prelevato da un impianto termico centralizzato per riscaldare la propria unità immobiliare.',
+        content: 'Negli ultimi decenni, con l\'avvento della tecnologia, è possibile misurare il calore effettivo prelevato da un impianto termico centralizzato per riscaldare la propria unità immobiliare.',
       },
       {
         title: 'Gestione Autonoma del Riscaldamento',
@@ -164,7 +168,7 @@ export const servicesData: { [key: string]: ServiceData } = {
   },
   'progettazione-antincendio': {
     title: 'Progettazione Antincendio',
-    breadcrumb: 'Progettazione Prevenzioni Incendi',
+    breadcrumb: 'Progettazione Antincendio',
     introduction: 'LC Energia offre consulenza e progettazione antincendio, con impianti di estinzione fissi ad idranti e sprinkler, evacuatori di fumo e calore.',
     sections: [
       {
@@ -179,7 +183,7 @@ export const servicesData: { [key: string]: ServiceData } = {
       },
       {
         title: '',
-        content: 'La nostra esperienza include l’asseverazione delle opere di prevenzione incendi a firma di un tecnico iscritto nell’elenco del Ministero degli Interni ai sensi del DLgs. 139/06, nonché certificazioni antincendio e di resistenza al fuoco delle strutture.',
+        content: 'La nostra esperienza include l\'asseverazione delle opere di prevenzione incendi a firma di un tecnico iscritto nell’elenco del Ministero degli Interni ai sensi del DLgs. 139/06, nonché certificazioni antincendio e di resistenza al fuoco delle strutture.',
       },
       {
         title: '',
@@ -190,7 +194,7 @@ export const servicesData: { [key: string]: ServiceData } = {
   'progettazione-acustica': {
     title: 'Progettazione Acustica',
     breadcrumb: 'Progettazione Acustica',
-    introduction: 'L’inquinamento acustico rappresenta uno dei problemi più rilevanti per la società attuale e per le attività produttive; esso è definito dalla Legge Quadro 447/95.',
+    introduction: 'L\'inquinamento acustico rappresenta uno dei problemi più rilevanti per la società attuale e per le attività produttive; esso è definito dalla Legge Quadro 447/95.',
     sections: [
       {
         title: 'Isolamento da Rumori',
@@ -213,7 +217,7 @@ export const servicesData: { [key: string]: ServiceData } = {
     ],
   },
   'impianti-geotermici': {
-    title: 'Impianto Geotermico',
+    title: 'Impianti Geotermici',
     breadcrumb: 'Impianti Geotermici',
     introduction: 'LC Energia da diversi anni realizza impianti che utilizzano fonti alternative, in particolare impianti geotermici puri o integrati con altri sistemi di produzione dell’energia, nell’ambito di una politica di ricerca della massima soddisfazione del cliente.',
     sections: [
@@ -242,7 +246,7 @@ export const servicesData: { [key: string]: ServiceData } = {
   'stazioni-di-ricarica': {
     title: 'Stazioni di Ricarica',
     breadcrumb: 'Stazioni di Ricarica',
-    introduction: 'Attraverso la nostra esperienza e con i software di calcolo possiamo identificare le principali criticità del sistema edificio/impianto al fine di valutare e proporre soluzioni sostenibili per la riqualificazione energetica sotto il profilo tecnico/economico.',
+introduction: 'Caricare l\'auto direttamente a casa, invece che nelle stazioni di ricarica pubbliche, offre la possibilità di sfruttare l’energia prodotta dai pannelli solari della tua casa, rendendo così questa soluzione più ecologica ed economicamente conveniente.',
     sections: [
       {
         title: 'Vantaggi',
@@ -264,9 +268,9 @@ export const servicesData: { [key: string]: ServiceData } = {
     ],
   },
   'riqualificazione-di-centrali-termiche-esistenti': {
-    title: 'Diagnosi Energetica e Riqualificazione Centrali Termiche',
+    title: 'Riqualificazione di centrali termiche esistenti',
     breadcrumb: 'Riqualificazione di centrali termiche esistenti',
-    introduction: 'Attraverso la nostra esperienza e con i software di calcolo possiamo identificare le principali criticità del sistema edificio/impianto al fine di valutare e proporre soluzioni sostenibili per la riqualificazione energetica sotto il profilo tecnico/economico.',
+    introduction: 'LC Energia offre consulenza e progettazione per la riqualificazione delle centrali termiche esistenti civili e industriali, al fine di conseguire il miglioramento dell\'efficienza energetica.',
     sections: [
       {
         title: '',
@@ -274,7 +278,7 @@ export const servicesData: { [key: string]: ServiceData } = {
       },
       {
         title: 'Centrali termiche esistenti con generatori di età maggiore di 15 anni',
-        content: 'La normativa regionale Lombardia DGR 3502 del 5/8/2020, aggiornata dalla DGR n.816 2023 fornisce le linee guida per la riqualificazione delle centrali termiche esistenti civili e industriali con generatori aventi potenza superiore a 116,3 kW, di età superiore a 15 anni e con rendimento di combustione superiore ai limiti minimi previsti per legge. Tale normativa, nell’ottica dell’efficientamento energetico e della riduzione delle emissioni di gas climalteranti, prevede la presentazione di una diagnosi energetica, redatta ai sensi delle norme UNI CEI EN 16247-1/2: 2022.',
+        content: 'La normativa regionale Lombardia DGR 3502 del 5/8/2020, aggiornata dalla DGR n.816 2023 fornisce le linee guida per la riqualificazione delle centrali termiche esistenti civili e industriali con generatori aventi potenza superiore a 116,3 kW, di età superiore a 15 anni e con rendimento di combustione superiore ai limiti minimi previsti per legge. Tale normativa, nell\'ottica dell\'efficientamento energetico e della riduzione delle emissioni di gas climalteranti, prevede la presentazione di una diagnosi energetica, redatta ai sensi delle norme UNI CEI EN 16247-1/2: 2022.',
       },
       {
         title: 'Ambiti di riqualificazione',
@@ -284,12 +288,12 @@ export const servicesData: { [key: string]: ServiceData } = {
           'Inserimento di impianti fotovoltaici per la autoproduzione di energia elettrica.',
           'Riqualifica del sistema di emissione, termoregolazione.',
           'Sostituzione dei serramenti obsoleti.',
-          'Riqualifica dell’involucro edilizio mediante coibentazione delle strutture disperdenti, in particolare pareti esterne e copertura.',
+          'Riqualifica dell\'involucro edilizio mediante coibentazione delle strutture disperdenti, in particolare pareti esterne e copertura.',
         ],
       },
       {
         title: '',
-        content: 'LC Energia tramite i propri tecnici qualificati ed accreditati offre la necessaria consulenza per la redazione della documentazione richiesta, la quale risulta di fondamentale importanza per poter valutare e definire gli eventuali interventi di efficientamento dell’edificio.',
+        content: 'LC Energia tramite i propri tecnici qualificati ed accreditati offre la necessaria consulenza per la redazione della documentazione richiesta, la quale risulta di fondamentale importanza per poter valutare e definire gli eventuali interventi di efficientamento dell\'edificio.',
       },
     ],
   },

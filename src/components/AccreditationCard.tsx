@@ -1,4 +1,4 @@
-import { Accreditation } from '@/data/accreditations-data';
+import { Accreditation } from '@/data/azienda-data';
 
 interface AccreditationCardProps {
   accreditation: Accreditation;

@@ -1,7 +1,7 @@
 
 import PageHeader from '@/components/PageHeader';
 import AccreditationCard from '@/components/AccreditationCard';
-import { accreditations } from '@/data/accreditations-data';
+import { accreditations } from '@/data/azienda-data';
 
 const AccreditationsPage = () => {
   return (
@@ -15,8 +15,8 @@ const AccreditationsPage = () => {
             style={{ maxWidth: '600px' }}
           >
             <i className="bi bi-shield-fill-check display-1 text-primary"></i>
-            <h3 className="text-3xl font-bold mt-4 mb-2 text-dark">Accrediti LC Energia</h3>
-            <h4 className="text-xl text-gray-600 mb-4">Iscritti all'ordine degli Ingegneri e all'albo Provinciale dei Periti Industriali.</h4>
+            <h3 className="text-3xl font-bold mt-4 mb-2 text-dark">{accreditations[0].pageTitle}</h3>
+            <h4 className="text-xl text-gray-600 mb-4">{accreditations[0].pageDescription}</h4>
           </div>
           <div className="flex flex-wrap -m-4 justify-center">
             {accreditations.map((accreditation, index) => (

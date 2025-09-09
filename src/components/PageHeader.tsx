@@ -38,7 +38,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, breadcrumb }) => {
                 Home
               </Link>
             </li>
-            <li className="text-gray-400">/</li>
+            <li className="text-gray-400">&gt;</li>
             <li className="font-semibold" aria-current="page">
               {breadcrumb}
             </li>
