@@ -4,24 +4,6 @@ import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 
 const ContactPage = () => {
-  const contactInfo = [
-    {
-      icon: 'fa-map-marker-alt',
-      content: 'Via della Valle 39, Carate Brianza (MB)',
-      href: 'https://www.google.com/maps/search/?api=1&query=Via+della+Valle+39,+Carate+Brianza+MB',
-    },
-    {
-      icon: 'fa-envelope',
-      content: 'info@lc-energia.it',
-      href: 'mailto:info@lc-energia.it',
-    },
-    {
-      icon: 'fa-phone-alt',
-      content: '0362 992142',
-      href: 'tel:0362992142',
-    },
-  ];
-
   return (
     <>
       <PageHeader title="Richiedi un preventivo" breadcrumb="Richiedi un preventivo" />

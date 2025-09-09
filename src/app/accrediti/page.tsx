@@ -14,8 +14,9 @@ const AccreditationsPage = () => {
             className="text-center mx-auto mb-12"
             style={{ maxWidth: '600px' }}
           >
-            <h6 className="text-primary font-bold text-lg">Le Nostre Competenze</h6>
-            <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-4 text-dark">Siamo Qualificati e Certificati</h1>
+            <i className="bi bi-shield-fill-check display-1 text-primary"></i>
+            <h3 className="text-3xl font-bold mt-4 mb-2 text-dark">Accrediti LC Energia</h3>
+            <h4 className="text-xl text-gray-600 mb-4">Iscritti all'ordine degli Ingegneri e all'albo Provinciale dei Periti Industriali.</h4>
           </div>
           <div className="flex flex-wrap -m-4 justify-center">
             {accreditations.map((accreditation, index) => (

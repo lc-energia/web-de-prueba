@@ -9,7 +9,7 @@ const Feature = () => {
       icon: "fa-users",
       count: "250",
       suffix: "+",
-      title: "Oltre 200 Progetti",
+      title: "Oltre 250 Progetti",
       description: "Progetti realizzati con successo, garantendo alta qualità e affidabilità."
     },
     {

@@ -16,9 +16,9 @@ export interface ServiceData {
 
 export const servicesData: { [key: string]: ServiceData } = {
   'progettare-il-risparmio-energetico': {
-    title: 'Progettare il Risparmio Energetico',
-    breadcrumb: 'Progettare il Risparmio Energetico',
-    introduction: 'L’obiettivo del risparmio energetico è perseguibile solo attraverso competenze specifiche.',
+    title: 'Progettare il risparmio energetico',
+    breadcrumb: 'Progettare il risparmio energetico',
+    introduction: 'LC Energia propone costantemente soluzioni tecniche innovative per ottenere il massimo risparmio energetico dai sistemi progettati.',
     sections: [
       {
         title: 'Competenze Specifiche',
@@ -40,9 +40,9 @@ export const servicesData: { [key: string]: ServiceData } = {
     ],
   },
   'impianti-fotovoltaici': {
-    title: 'Impianti Fotovoltaici',
+    title: 'Impianto Fotovoltaico e Accumulo Elettrico',
     breadcrumb: 'Impianti Fotovoltaici',
-    introduction: 'Progettiamo e installiamo impianti fotovoltaici "chiavi in mano".',
+    introduction: 'Progettiamo e installiamo impianti fotovoltaici chiavi in mano per ridurre i consumi energetici grazie all’autoproduzione di energia elettrica.',
     sections: [
       {
         title: 'Valutazione Preliminare',
@@ -85,7 +85,7 @@ export const servicesData: { [key: string]: ServiceData } = {
   'progettazione-e-consulenza-tecnica': {
     title: 'Progettazione e consulenza tecnica',
     breadcrumb: 'Progettazione e consulenza tecnica',
-    introduction: 'Nella realizzazione di opere impiantistiche vi è la necessità di gestire le diverse fasi operative in modo da coordinare lo svolgimento dei lavori e garantire la funzionalità del prodotto finale.',
+    introduction: 'Da oltre 25 anni offriamo un servizio di consulenza, progettazione e supporto nelle realizzazioni impiantistiche civili ed industriali. Ogni soluzione è valutata e condivisa nel rispetto delle esigenze del committente.',
     sections: [
       {
         title: 'Progettazione e consulenza tecnica',
@@ -148,9 +148,9 @@ export const servicesData: { [key: string]: ServiceData } = {
     ],
   },
   'contabilizzazione-calore-impianti-termici-centralizzati': {
-    title: 'Contabilizzazione e Ripartizione del Calore',
+    title: 'Contabilizzazione e ripartizione del calore',
     breadcrumb: 'Contabilizzazione e Ripartizione del Calore',
-    introduction: 'In Italia fino a pochi anni orsono la ripartizione delle spese di riscaldamento, nei condomini dotati di impianto centralizzato, avveniva prevalentemente a millesimi di riscaldamento indipendentemente dall’effettivo utilizzo del singolo condomino.',
+    introduction: 'Progettiamo sistemi di contabilizzazione e ripartizione del calore per edifici costituiti da più unità immobiliari.',
     sections: [
       {
         title: 'Tecnologia Avanzata',
@@ -163,9 +163,9 @@ export const servicesData: { [key: string]: ServiceData } = {
     ],
   },
   'progettazione-antincendio': {
-    title: 'Progettazione Prevenzioni Incendi',
+    title: 'Progettazione Antincendio',
     breadcrumb: 'Progettazione Prevenzioni Incendi',
-    introduction: 'Siamo specializzati nella redazione di pratiche per l’ottenimento del Certificato di Prevenzione Incendi o S.C.I.A. presso i Comandi Provinciali dei Vigili del Fuoco.',
+    introduction: 'LC Energia offre consulenza e progettazione antincendio, con impianti di estinzione fissi ad idranti e sprinkler, evacuatori di fumo e calore.',
     sections: [
       {
         title: 'Servizi Offerti',
@@ -190,7 +190,7 @@ export const servicesData: { [key: string]: ServiceData } = {
   'progettazione-acustica': {
     title: 'Progettazione Acustica',
     breadcrumb: 'Progettazione Acustica',
-    introduction: 'LC Energia offre una consulenza specifica per il settore acustico con la redazione delle pratiche di valutazione del clima acustico.',
+    introduction: 'L’inquinamento acustico rappresenta uno dei problemi più rilevanti per la società attuale e per le attività produttive; esso è definito dalla Legge Quadro 447/95.',
     sections: [
       {
         title: 'Isolamento da Rumori',
@@ -213,9 +213,9 @@ export const servicesData: { [key: string]: ServiceData } = {
     ],
   },
   'impianti-geotermici': {
-    title: 'Impianti Geotermici',
+    title: 'Impianto Geotermico',
     breadcrumb: 'Impianti Geotermici',
-    introduction: 'L’aumento dei costi energetici e dell’inquinamento atmosferico sono tra i problemi più importanti da risolvere per affrontare il nostro futuro.',
+    introduction: 'LC Energia da diversi anni realizza impianti che utilizzano fonti alternative, in particolare impianti geotermici puri o integrati con altri sistemi di produzione dell’energia, nell’ambito di una politica di ricerca della massima soddisfazione del cliente.',
     sections: [
       {
         title: '',
@@ -242,7 +242,7 @@ export const servicesData: { [key: string]: ServiceData } = {
   'stazioni-di-ricarica': {
     title: 'Stazioni di Ricarica',
     breadcrumb: 'Stazioni di Ricarica',
-    introduction: 'Caricare l\'auto direttamente a casa, invece che nelle stazioni di ricarica pubbliche, offre la possibilità di sfruttare l’energia prodotta dai pannelli solari della tua casa, rendendo così questa soluzione più ecologica ed economicamente conveniente.',
+    introduction: 'Attraverso la nostra esperienza e con i software di calcolo possiamo identificare le principali criticità del sistema edificio/impianto al fine di valutare e proporre soluzioni sostenibili per la riqualificazione energetica sotto il profilo tecnico/economico.',
     sections: [
       {
         title: 'Vantaggi',
@@ -264,9 +264,9 @@ export const servicesData: { [key: string]: ServiceData } = {
     ],
   },
   'riqualificazione-di-centrali-termiche-esistenti': {
-    title: 'Riqualificazione di centrali termiche esistenti',
+    title: 'Diagnosi Energetica e Riqualificazione Centrali Termiche',
     breadcrumb: 'Riqualificazione di centrali termiche esistenti',
-    introduction: 'LC Energia offre consulenza e progettazione per la riqualificazione delle centrali termiche esistenti civili e industriali, al fine di conseguire il miglioramento dell’efficienza energetica.',
+    introduction: 'Attraverso la nostra esperienza e con i software di calcolo possiamo identificare le principali criticità del sistema edificio/impianto al fine di valutare e proporre soluzioni sostenibili per la riqualificazione energetica sotto il profilo tecnico/economico.',
     sections: [
       {
         title: '',

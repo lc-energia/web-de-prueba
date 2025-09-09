@@ -14,7 +14,7 @@ export const carouselData = [
   {
     img: '/img/1.png',
     title: '<span style="color: #F49918">LC</span><span class="text-primary">Energia</span>',
-    text: 'Innovazione, Esperienza, Eccellenza.',
+    text: '<span>Innovazione,</span> Esperienza, <span>Eccellenza.</span>',
     link: '/riqualificazione-di-centrali-termiche-esistenti'
   }
 ];

@@ -13,7 +13,11 @@ const valuePropositions = [
     content: "Sfruttando le nostre competenze operiamo sempre nel rispetto degli obblighi legislativi e normativi per fornire al cliente un servizio a regola d&apos;arte. Attraverso interventi di riqualificazione architettonica e impiantistica su diversi edifici nel campo industriale, civile, pubblico e nei processi produttivi, LC Energia permette ai suoi clienti di ottenere significativi risparmi energetici oltre a una miglior qualità di vita."
   },
   {
-    content: "Il successo di LC Energia deriva dalla corretta applicazione delle conoscenze tecniche e dall&apos;utilizzo razionale delle nuove tecnologie per la produzione di energia e la riduzione dei consumi. La società opera attraverso due principali settori operativi:"
+    content: "Il successo di LC Energia deriva dalla corretta applicazione delle conoscenze tecniche e dall&apos;utilizzo razionale delle nuove tecnologie per la produzione di energia e la riduzione dei consumi. La società opera attraverso due principali settori operativi:",
+    list: [
+        "Consulenza tecnica e progettazione che include anche attività di prevenzione incendi, acustica e assistenza ai lavori.",
+        "Realizzazione di impianti ad alto profilo tecnologico per la produzione di energia elettrica e termica per l’abbattimento dei consumi energetici."
+    ]
   },
   {
     content: "LC Energia si impegna a offrire soluzioni su misura per le esigenze specifiche dei clienti, garantendo risultati tangibili attraverso un percorso collaudato che include la diagnosi energetica, la valutazione degli interventi e la stima economica degli investimenti proposti. Grazie a un&apos;approfondita conoscenza del settore e alla competenza tecnica, LC Energia si posiziona come un partner affidabile per il raggiungimento degli obiettivi di efficienza energetica e sostenibilità."
@@ -66,6 +70,13 @@ const AziendaPage = () => {
                 className="bg-white p-8 rounded-lg shadow-lg"
               >
                 <p className="text-gray-600 leading-relaxed">{item.content}</p>
+                {item.list && (
+                  <ul className="list-disc list-inside mt-4">
+                    {item.list.map((point, i) => (
+                      <li key={i} className="text-gray-600 leading-relaxed">{point}</li>
+                    ))}
+                  </ul>
+                )}
               </motion.div>
             ))}
           </div>
