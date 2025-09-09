@@ -14,7 +14,7 @@ const About = () => {
             variants={fadeIn('right', 0.3)}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.25 }}
             className="w-full lg:w-1/2 flex items-center py-12 px-4 sm:px-6 lg:px-8"
           >
             <div>
@@ -31,7 +31,7 @@ const About = () => {
                 className="flex flex-wrap -m-2 mt-6"
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.25 }}
                 variants={{
                   show: {
                     transition: {
@@ -51,7 +51,7 @@ const About = () => {
             variants={fadeIn('left', 0.5)}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.25 }}
             className="w-full lg:w-1/2 min-h-[400px] lg:min-h-full"
           >
             <div className="relative w-full h-full">

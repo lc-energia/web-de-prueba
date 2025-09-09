@@ -89,7 +89,7 @@ const Services = () => {
           variants={fadeIn('up', 0.1)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.25 }}
           className="text-center mx-auto mb-12"
           style={{ maxWidth: '600px' }}
         >
@@ -101,7 +101,7 @@ const Services = () => {
           variants={fadeIn('up', 0.2)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.25 }}
           className="flex justify-center mb-10"
         >
           <ul className="flex flex-wrap items-center space-x-2 sm:space-x-4">

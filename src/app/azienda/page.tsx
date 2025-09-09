@@ -48,7 +48,7 @@ const AziendaPage = () => {
             variants={fadeIn('up', 0.2)}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.25 }}
             className="text-center max-w-3xl mx-auto mb-12"
           >
             <h6 className="text-primary font-bold text-lg">Azienda</h6>
@@ -62,7 +62,7 @@ const AziendaPage = () => {
                 variants={fadeIn('up', 0.3 + index * 0.1)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.25 }}
                 className="bg-white p-8 rounded-lg shadow-lg"
               >
                 <p className="text-gray-600 leading-relaxed">{item.content}</p>
@@ -79,7 +79,7 @@ const AziendaPage = () => {
             variants={fadeIn('up', 0.2)}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.25 }}
             className="text-center max-w-3xl mx-auto mb-12"
           >
             <h6 className="text-primary font-bold text-lg">Produzione di energia pulita per salvare l&apos;ambiente</h6>
@@ -92,7 +92,7 @@ const AziendaPage = () => {
                 variants={fadeIn('up', 0.3 + index * 0.1)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.25 }}
                 className="bg-white rounded-lg shadow-lg p-6 text-center h-full transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
               >
                 <div className="inline-block p-4 bg-primary text-white rounded-full mb-4">
@@ -113,7 +113,7 @@ const AziendaPage = () => {
             variants={fadeIn('up', 0.2)}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.25 }}
             className="text-center max-w-3xl mx-auto mb-12"
           >
             <h6 className="text-primary font-bold text-lg">Collaborazioni</h6>
@@ -122,7 +122,7 @@ const AziendaPage = () => {
             variants={fadeIn('up', 0.3)}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.25 }}
             className="flex justify-center"
           >
             <Image src="/img/image3.png" alt="Collaborazione" width={400} height={200} className="rounded-lg shadow-lg" />
@@ -137,23 +137,25 @@ const AziendaPage = () => {
             variants={fadeIn('up', 0.2)}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.25 }}
             className="text-center max-w-3xl mx-auto mb-12"
           >
             <h6 className="text-primary font-bold text-lg">Membri del Team Esperti</h6>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center -m-4">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
                 variants={fadeIn('up', 0.3 + index * 0.1)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true }}
-                className="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
+                viewport={{ once: true, amount: 0.25 }}
+                className="w-full sm:w-1/2 md:w-1/3 p-4"
               >
-                <h5 className="text-xl font-bold text-dark">{member.name}</h5>
-                <p className="text-primary">{member.role}</p>
+                <div className="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:-translate-y-2 hover:shadow-2xl h-full">
+                  <h5 className="text-xl font-bold text-dark">{member.name}</h5>
+                  <p className="text-primary">{member.role}</p>
+                </div>
               </motion.div>
             ))}
           </div>

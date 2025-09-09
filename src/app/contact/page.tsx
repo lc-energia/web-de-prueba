@@ -34,7 +34,7 @@ const ContactPage = () => {
               variants={fadeIn('up', 0.2)}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.25 }}
               className="text-center mb-12"
             >
               <h2 className="text-4xl sm:text-5xl font-bold text-primary">Mettiti in Contatto</h2>
@@ -46,7 +46,7 @@ const ContactPage = () => {
               variants={{ show: { transition: { staggerChildren: 0.2 } } }}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.25 }}
               className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
             >
               {contactInfo.map((info) => (
@@ -71,7 +71,7 @@ const ContactPage = () => {
               variants={fadeIn('up', 0.4)}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.25 }}
               className="w-full"
             >
               <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">

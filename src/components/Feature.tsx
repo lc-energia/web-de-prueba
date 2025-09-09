@@ -45,7 +45,7 @@ const Feature = () => {
               variants={fadeIn('up', i * 0.2)}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.25 }}
               className="text-center"
             >
               <div className="flex items-center justify-center mb-4">
