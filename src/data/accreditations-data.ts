@@ -18,7 +18,7 @@ export const accreditations: Accreditation[] = [
   },
   {
     title: "Progettazione Antincendio",
-    description: "Iscritti negli elenchi del Ministero degli Interni dei professionisti abilitati alla progettazione antincendio.",
+    description: "Iscritti negli elenchi del Ministero degli Interni dei professionisti abilitati alla progettazione antincendio ed all'estensione di perizie giurate di cui alla Legge 818/84.",
     icon: "bi bi-fire",
   },
   {
