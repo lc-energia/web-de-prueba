@@ -1,7 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
-
 import Counter from './Counter';
 
 const Feature = () => {
@@ -37,32 +36,34 @@ const Feature = () => {
   ];
 
   return (
-    <div className="container-xxl py-5 ">
-      <div className="container ">
-        <div className="row g-5 ">
+    <section className="py-16 sm:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, i) => (
-            <motion.div 
+            <motion.div
               key={i}
-              className="col-md-6 col-lg-3"
               variants={fadeIn('up', i * 0.2)}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
+              className="text-center"
             >
-              <div className="d-flex align-items-center mb-4">
-                <div className="btn-lg-square bg-primary rounded-circle me-3">
-                  <i className={`fa ${feature.icon} text-white`}></i>
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mr-4">
+                  <i className={`fa ${feature.icon} text-white text-2xl`}></i>
                 </div>
-                <Counter from={0} to={parseInt(feature.count)} />
-                <p className="mb-0">{feature.suffix}</p>
+                <div className="flex items-baseline">
+                  <Counter from={0} to={parseInt(feature.count)} />
+                  <span className="text-2xl font-bold text-dark">{feature.suffix}</span>
+                </div>
               </div>
-              <h5 className="mb-3">{feature.title}</h5>
-              <span>{feature.description}</span>
+              <h5 className="text-xl font-bold mb-2 text-dark">{feature.title}</h5>
+              <p className="text-gray-600">{feature.description}</p>
             </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
