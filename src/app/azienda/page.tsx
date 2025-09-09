@@ -21,7 +21,7 @@ const valuePropositions = [
 ];
 
 const reasons = [
-  { icon: 'fa-solar-panel', title: 'Soluzioni efficienti, ottimizzazione dei sistemi', description: 'Ogni progetto/impianto è sviluppato dando priorità all\'affidabilità dei sistemi e al controllo dei costi di realizzazione ed esercizio.' },
+  { icon: 'fa-solar-panel', title: 'Soluzioni efficienti, ottimizzazione dei sistemi', description: 'Ogni progetto/impianto è sviluppato dando priorità all&apos;affidabilità dei sistemi e al controllo dei costi di realizzazione ed esercizio.' },
   { icon: 'fa-wind', title: 'Energia rinnovabile consapevole', description: 'Progettiamo il futuro sfruttando l\'apporto delle energie rinnovabili, nel rispetto delle normative e laddove risulta tecnicamente ed economicamente conveniente.' },
   { icon: 'fa-lightbulb', title: 'Consulenza specializzata nell\'ambito della prevenzione incendi', description: 'Siamo specializzati nella redazione di attività ai fini dell\'ottenimento del Certificato di Prevenzione Incendi.' },
   { icon: 'fa-headset', title: 'Supporto e consulenza nel campo dell\'acustica degli edifici', description: 'Offriamo una consulenza specifica per il settore acustico sia in ambito civile che industriale.' }
@@ -52,7 +52,7 @@ const AziendaPage = () => {
             className="text-center max-w-3xl mx-auto mb-12"
           >
             <h6 className="text-primary font-bold text-lg">Azienda</h6>
-            <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-4 text-dark">Il valore dell'esperienza per l'efficienza ed il risparmio energetico</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-4 text-dark">Il valore dell&apos;esperienza per l&apos;efficienza ed il risparmio energetico</h1>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
