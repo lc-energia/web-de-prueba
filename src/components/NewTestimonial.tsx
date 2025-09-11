@@ -2,20 +2,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { testimonialData } from '@/data/carousel-data';
+import { FaQuoteLeft } from 'react-icons/fa';
 
 const variants = {
-  enter: {
-    opacity: 0,
-    y: 20,
-  },
-  center: {
-    opacity: 1,
-    y: 0,
-  },
-  exit: {
-    opacity: 0,
-    y: -20,
-  },
+  enter: { opacity: 0, y: 20 },
+  center: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 },
 };
 
 const NewTestimonial = () => {
@@ -23,19 +15,27 @@ const NewTestimonial = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((prevIndex) =>
-        prevIndex === testimonialData.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 3000); // Change testimonial every 3 seconds
+      setIndex((prevIndex) => (prevIndex === testimonialData.length - 1 ? 0 : prevIndex + 1));
+    }, 4000);
 
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <div className="container-xxl py-5">
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-lg-8 text-center">
+    <div className="bg-light py-20 sm:py-28">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Il Nostro Impegno</h2>
+            <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
+          </motion.div>
+          
+          <div className="relative h-24">
             <AnimatePresence mode="wait">
               <motion.div
                 key={index}
@@ -43,9 +43,11 @@ const NewTestimonial = () => {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.6, ease: 'easeInOut' }}
+                className="absolute w-full"
               >
-                <p className="card-text fs-4">{testimonialData[index].text}</p>
+                <FaQuoteLeft className="text-primary text-3xl md:text-4xl mx-auto mb-4" />
+                <p className="text-xl md:text-2xl text-gray-600 italic">{testimonialData[index].text}</p>
               </motion.div>
             </AnimatePresence>
           </div>

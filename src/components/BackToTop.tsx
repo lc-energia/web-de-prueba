@@ -1,9 +1,10 @@
 'use client';
 import { useSticky } from '@/hooks/useSticky';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FaArrowUp } from 'react-icons/fa';
 
 const BackToTop = () => {
-  const isSticky = useSticky();
+  const isSticky = useSticky(400);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -13,14 +14,17 @@ const BackToTop = () => {
     <AnimatePresence>
       {isSticky && (
         <motion.button
-          className="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"
+          className="fixed bottom-8 right-8 bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg z-50"
           onClick={scrollToTop}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+          aria-label="Torna su"
         >
-          <i className="bi bi-arrow-up"></i>
+          <FaArrowUp size={20} />
         </motion.button>
       )}
     </AnimatePresence>

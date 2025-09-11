@@ -1,5 +1,8 @@
 import { metadata } from './metadata';
-import AppInitializer from '@/components/AppInitializer';
+import Topbar from '@/components/Topbar';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import BackToTop from '@/components/BackToTop';
 import './globals.css';
 
 export { metadata };
@@ -10,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it">
+    <html lang="it" className="scroll-smooth">
       <head>
         <link rel="icon" href="/img/logo.ico" />
         
@@ -18,22 +21,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet" />
-
-        {/* Icon Font Stylesheet */}
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-
-        {/* Libraries Stylesheet */}
-
-
-        {/* Customized Bootstrap Stylesheet */}
-        <link href="/css/bootstrap.min.css" rel="stylesheet" />
-
-        {/* Template Stylesheet */}
-        <link href="/css/style.css" rel="stylesheet" />
       </head>
-      <body>
-        <AppInitializer>{children}</AppInitializer>
+      <body className="bg-white text-gray-800 font-sans">
+        <Topbar />
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+        <BackToTop />
       </body>
     </html>
   );

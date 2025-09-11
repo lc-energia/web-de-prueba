@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { FaCheckCircle } from 'react-icons/fa';
 
 const FlippableCard = ({ text }: { text: string }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -12,35 +13,25 @@ const FlippableCard = ({ text }: { text: string }) => {
 
   return (
     <motion.div
-      className="col-lg-6"
+      className="w-full md:w-1/2 p-2 cursor-pointer [perspective:1000px]"
       variants={cardVariants}
       onClick={() => setIsFlipped(!isFlipped)}
-      style={{ perspective: 1000 }}
     >
       <motion.div
-        className="card h-100"
-        style={{ transformStyle: 'preserve-3d' }}
+        className="relative w-full h-28 [transform-style:preserve-3d]"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.6, ease: 'easeInOut' }}
       >
-        <div className="card-body text-center d-flex align-items-center justify-content-center" style={{ backfaceVisibility: 'hidden' }}>
-          <p><i className="fa fa-check-circle text-primary me-3"></i>{text}</p>
+        {/* Front of the card */}
+        <div className="absolute w-full h-full bg-white rounded-xl shadow-lg flex items-center justify-center text-center p-4 [backface-visibility:hidden]">
+          <p className="flex items-center text-gray-700 font-medium">
+            <FaCheckCircle className="text-primary text-2xl mr-3" />
+            {text}
+          </p>
         </div>
-        <div
-          className="card-body text-center d-flex align-items-center justify-content-center"
-          style={{
-            backfaceVisibility: 'hidden',
-            transform: 'rotateY(180deg)',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'var(--primary)',
-            color: 'white'
-          }}
-        >
-          <p>LC Energia</p>
+        {/* Back of the card */}
+        <div className="absolute w-full h-full bg-primary text-white rounded-xl shadow-lg flex items-center justify-center text-center p-4 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+          <p className="text-xl font-bold">LC Energia</p>
         </div>
       </motion.div>
     </motion.div>

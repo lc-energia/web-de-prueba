@@ -2,14 +2,15 @@
 import { useEffect, useRef } from 'react';
 import { animate, useInView } from 'framer-motion';
 
-const Counter = ({ from, to }: { from: number; to: number }) => {
-  const ref = useRef<HTMLHeadingElement>(null);
+const Counter = ({ from, to, className }: { from: number; to: number; className?: string }) => {
+  const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (inView) {
       animate(from, to, {
-        duration: 1.5,
+        duration: 2,
+        ease: 'easeOut',
         onUpdate(value) {
           if (ref.current) {
             ref.current.textContent = value.toFixed(0);
@@ -19,7 +20,7 @@ const Counter = ({ from, to }: { from: number; to: number }) => {
     }
   }, [inView, from, to]);
 
-  return <h1 ref={ref} className="mb-0">{from}</h1>;
+  return <span ref={ref} className={className}>{from}</span>;
 };
 
 export default Counter;

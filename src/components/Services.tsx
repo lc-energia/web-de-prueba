@@ -3,152 +3,96 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import Link from 'next/link';
+import { FaGlobe, FaTools, FaFireExtinguisher, FaSolarPanel, FaHeadphones, FaWallet, FaThermometerHalf, FaLightbulb, FaArrowRight } from 'react-icons/fa';
+
+const services = [
+  { filter: "third", icon: <FaGlobe />, title: "Impianto Geotermico", description: "Realizzazione di impianti geotermici puri o integrati, per la massima soddisfazione del cliente.", link: "/impianti-geotermici" },
+  { filter: "third", icon: <FaTools />, title: "Progettazione e consulenza tecnica", description: "Consulenza, progettazione e supporto nelle realizzazioni impiantistiche civili ed industriali.", link: "/progettazione-e-consulenza-tecnica" },
+  { filter: "third", icon: <FaFireExtinguisher />, title: "Progettazione Antincendio", description: "Consulenza e progettazione antincendio, con impianti di estinzione fissi ad idranti e sprinkler.", link: "/progettazione-antincendio" },
+  { filter: "second", icon: <FaSolarPanel />, title: "Impianto Fotovoltaico e Accumulo", description: "Impianti fotovoltaici chiavi in mano per ridurre i consumi energetici grazie all’autoproduzione.", link: "/impianti-fotovoltaici" },
+  { filter: "third", icon: <FaHeadphones />, title: "Progettazione Acustica", description: "Soluzioni per l’inquinamento acustico, nel rispetto della Legge Quadro 447/95.", link: "/progettazione-acustica" },
+  { filter: "third", icon: <FaWallet />, title: "Progettare il risparmio energetico", description: "Soluzioni tecniche innovative per ottenere il massimo risparmio energetico dai sistemi progettati.", link: "/progettare-il-risparmio-energetico" },
+  { filter: "third", icon: <FaThermometerHalf />, title: "Contabilizzazione e ripartizione calore", description: "Sistemi di contabilizzazione e ripartizione del calore per edifici con più unità immobiliari.", link: "/contabilizzazione-calore-impianti-termici-centralizzati" },
+  { filter: "first", icon: <FaTools />, title: "Diagnosi Energetica", description: "Consulenza e progettazione per la riqualificazione delle centrali termiche esistenti.", link: "/riqualificazione-di-centrali-termiche-esistenti" },
+  { filter: "second", icon: <FaLightbulb />, title: "Stazioni di Ricarica", description: "Sfrutta l’energia autoprodotta dai pannelli solari per ricaricare la tua auto a casa.", link: "/stazioni-di-ricarica" }
+];
+
+const filterButtons = [
+  { name: 'Tutto', value: '*' },
+  { name: 'Progettazione', value: 'third' },
+  { name: 'Impianti', value: 'second' },
+  { name: 'Studio', value: 'first' },
+];
 
 const Services = () => {
   const [filter, setFilter] = useState('*');
 
-  const services = [
-    {
-      filter: "third",
-      icon: "fa-globe",
-      title: "Impianto Geotermico",
-      description: "LC Energia da diversi anni realizza impianti che utilizzano fonti alternative, in particolare impianti geotermici puri o integrati con altri sistemi di produzione dell’energia, nell’ambito di una politica di ricerca della massima soddisfazione del cliente.",
-      link: "/impianti-geotermici"
-    },
-    {
-      filter: "third",
-      icon: "fa-tools",
-      title: "Progettazione e consulenza tecnica",
-      description: "Da oltre 25 anni offriamo un servizio di consulenza, progettazione e supporto nelle realizzazioni impiantistiche civili ed industriali. Ogni soluzione è valutata e condivisa nel rispetto delle esigenze del committente.",
-      link: "/progettazione-e-consulenza-tecnica"
-    },
-    {
-      filter: "third",
-      icon: "fa-fire-extinguisher",
-      title: "Progettazione Antincendio",
-      description: "LC Energia offre consulenza e progettazione antincendio, con impianti di estinzione fissi ad idranti e sprinkler, evacuatori di fumo e calore.",
-      link: "/progettazione-antincendio"
-    },
-    {
-      filter: "second",
-      icon: "fa-solar-panel",
-      title: "Impianto Fotovoltaico e Accumulo Elettrico",
-      description: "Progettiamo e installiamo impianti fotovoltaici chiavi in mano per ridurre i consumi energetici grazie all’autoproduzione di energia elettrica.",
-      link: "/impianti-fotovoltaici"
-    },
-    {
-      filter: "third",
-      icon: "fa-headphones",
-      title: "Progettazione Acustica",
-      description: "L’inquinamento acustico rappresenta uno dei problemi più rilevanti per la società attuale e per le attività produttive; esso è definito dalla Legge Quadro 447/95.",
-      link: "/progettazione-acustica"
-    },
-    {
-      filter: "third",
-      icon: "fa-wallet",
-      title: "Progettare il risparmio energetico",
-      description: "LC Energia propone costantemente soluzioni tecniche innovative per ottenere il massimo risparmio energetico dai sistemi progettati.",
-      link: "/progettare-il-risparmio-energetico"
-    },
-    {
-      filter: "third",
-      icon: "fa-thermometer-half",
-      title: "Contabilizzazione e ripartizione del calore",
-      description: "Progettiamo sistemi di contabilizzazione e ripartizione del calore per edifici costituiti da più unità immobiliari.",
-      link: "/contabilizzazione-calore-impianti-termici-centralizzati"
-    },
-    {
-      filter: "first",
-      icon: "fa-tools",
-      title: "Diagnosi Energetica",
-      description: "LC Energia offre consulenza e progettazione per la riqualificazione delle centrali termiche esistenti civili e industriali, al fine di conseguire il miglioramento dell’efficienza energetica.",
-      link: "/riqualificazione-di-centrali-termiche-esistenti"
-    },
-    {
-      filter: "second",
-      icon: "fa-lightbulb",
-      title: "Stazioni di Ricarica",
-      description: "Caricare l'auto direttamente a casa, invece che nelle stazioni di ricarica pubbliche, offre la possibilità di sfruttare l’energia prodotta dai pannelli solari della tua casa, rendendo così questa soluzione più ecologica ed economicamente conveniente.",
-      link: "/stazioni-di-ricarica"
-    }
-  ];
-
   const filteredServices = filter === '*' ? services : services.filter(service => service.filter === filter);
 
-  const filterButtons = [
-    { name: 'Tutto', value: '*' },
-    { name: 'Progettazione', value: 'third' },
-    { name: 'Impianti', value: 'second' },
-    { name: 'Studio', value: 'first' },
-  ];
-
   return (
-    <section className="py-16 sm:py-20">
+    <section className="bg-light py-20 sm:py-28">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={fadeIn('up', 0.1)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-          className="text-center mx-auto mb-12"
-          style={{ maxWidth: '600px' }}
-        >
-          <h1 className="text-4xl sm:text-5xl font-bold text-primary">I Nostri Servizi</h1>
-        </motion.div>
-
-        {/* Filter Buttons */}
         <motion.div
           variants={fadeIn('up', 0.2)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-          className="flex justify-center mb-10"
+          viewport={{ once: true, amount: 0.4 }}
+          className="text-center mb-12"
         >
-          <ul className="flex flex-wrap items-center space-x-2 sm:space-x-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">I Nostri Servizi</h2>
+          <div className="w-20 h-1 bg-primary mx-auto mt-4"></div>
+        </motion.div>
+
+        {/* Filter Buttons */}
+        <motion.div
+          variants={fadeIn('up', 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.4 }}
+          className="flex justify-center mb-12"
+        >
+          <div className="flex flex-wrap items-center justify-center gap-4">
             {filterButtons.map(button => (
-              <li
+              <button
                 key={button.value}
                 onClick={() => setFilter(button.value)}
-                className={`cursor-pointer font-medium py-2 px-4 rounded-full transition-colors duration-300 ${
+                className={`font-medium py-2 px-5 rounded-full transition-all duration-300 text-sm sm:text-base ${
                   filter === button.value
-                    ? 'bg-primary text-white shadow-md'
-                    : 'bg-gray-200 text-gray-700 hover:bg-primary hover:text-white'
+                    ? 'bg-primary text-white shadow-lg'
+                    : 'bg-white text-gray-700 hover:bg-primary hover:text-white shadow-md hover:shadow-lg'
                 }`}
               >
                 {button.name}
-              </li>
+              </button>
             ))}
-          </ul>
+          </div>
         </motion.div>
 
         {/* Services Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence>
-            {filteredServices.map((service, index) => (
+            {filteredServices.map((service) => (
               <motion.div
                 key={service.title}
                 layout
-                variants={fadeIn('up', 0.3)}
-                initial="hidden"
-                animate="show"
-                exit="hidden"
-                className="w-full"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                className="bg-white rounded-xl shadow-lg overflow-hidden h-full flex flex-col group"
               >
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
-                  <div className="p-6 flex-grow">
-                    <div className="text-primary mb-4">
-                      <i className={`fa ${service.icon} text-4xl`}></i>
-                    </div>
-                    <h4 className="text-xl font-bold mb-3 text-dark">{service.title}</h4>
-                    <p className="text-gray-600 mb-4 flex-grow">{service.description}</p>
+                <div className="p-8 flex-grow">
+                  <div className="text-primary text-4xl mb-5 transform group-hover:scale-110 transition-transform duration-300">
+                    {service.icon}
                   </div>
-                  <div className="p-6 bg-gray-50">
-                    <Link href={service.link} className="font-medium text-primary hover:text-orange-700 transition-colors">
-                      Leggi di più <i className="fa fa-arrow-right ml-2"></i>
-                    </Link>
-                  </div>
+                  <h4 className="text-xl font-bold mb-3 text-gray-800">{service.title}</h4>
+                  <p className="text-gray-600 mb-4 flex-grow">{service.description}</p>
+                </div>
+                <div className="p-6 bg-gray-50 border-t border-gray-100">
+                  <Link href={service.link} className="font-semibold text-primary hover:text-accent-orange transition-colors duration-300 flex items-center justify-between">
+                    <span>Leggi di più</span>
+                    <FaArrowRight className="transform group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
                 </div>
               </motion.div>
             ))}
