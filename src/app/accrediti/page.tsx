@@ -34,7 +34,7 @@ const AccreditationsPage = () => {
               className="w-full lg:w-1/2 px-4 mb-8 lg:mb-0"
             >
               <h2 className="text-3xl font-bold text-dark mb-4">{accreditation.pageTitle}</h2>
-              <p className="text-gray-600 leading-relaxed mb-6">{accreditation.pageDescription}</p>
+              <p className="text-gray-700 leading-relaxed mb-6">{accreditation.pageDescription}</p>
               <ul className="space-y-3">
                 {accreditation.description.map((item, index) => (
                   <li key={index} className="flex items-start">
@@ -44,7 +44,7 @@ const AccreditationsPage = () => {
                 ))}
               </ul>
               <div className="mt-8">
-                <Link href="/contact" className="inline-block bg-primary text-white font-semibold rounded-full py-3 px-8 hover:bg-primary-hover transition-colors">
+                <Link href="/contact" className="inline-block bg-primary text-white font-semibold rounded-full py-3 px-8 hover:bg-primary-hover transition-colors duration-300">
                   Richiedi un preventivo
                 </Link>
               </div>

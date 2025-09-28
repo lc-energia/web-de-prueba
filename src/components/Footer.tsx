@@ -77,7 +77,7 @@ const Footer = () => {
             </nav>
           </motion.div>
 
-          {/* Column 3: Services (example) */}
+          {/* Column 3: Services */}
            <motion.div
             variants={fadeIn('up', 0.6)}
             initial="hidden"
@@ -91,7 +91,6 @@ const Footer = () => {
               <Link className="hover:text-primary transition-colors" href="/riqualificazione-di-centrali-termiche-esistenti">Diagnosi Energetica</Link>
             </nav>
           </motion.div>
-
 
           {/* Column 4: Address */}
           <motion.div 

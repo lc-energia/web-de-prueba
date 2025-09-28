@@ -1,50 +1,39 @@
 import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 
-export interface Feature {
+interface Feature {
   title: string;
   description: string;
   image?: string;
-  icon?: ReactNode; // Accept a ReactNode for SVG icons
+  icon?: string;
 }
 
 interface FeatureCardProps {
   feature: Feature;
   variants: Variants;
   i: number;
+  columnClass: string;
 }
 
-const FeatureCard: FC<FeatureCardProps> = ({ feature, variants, i }) => {
+const FeatureCard: FC<FeatureCardProps> = ({ feature, variants, i, columnClass }) => {
   return (
     <motion.div
+      className={columnClass}
       custom={i}
       initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
+      animate="visible"
       variants={variants}
-      className="w-full"
     >
-      <div className="bg-white rounded-lg shadow-lg h-full p-6 text-center transition-transform transform hover:-translate-y-2 hover:shadow-xl">
-        <div className="mb-4 inline-block">
-          {feature.image && (
-            <Image
-              src={feature.image}
-              alt={feature.title}
-              width={80}
-              height={80}
-              className="mx-auto"
-              style={{ objectFit: 'contain' }}
-            />
-          )}
-          {feature.icon && (
-            <div className="text-primary">
-              {feature.icon}
-            </div>
-          )}
+      <div className="card h-100 shadow-sm border-0 text-center">
+        <div className="card-body p-4">
+          <div className="mb-3">
+            {feature.image && <Image src={feature.image} alt={feature.title} width={100} height={100} style={{ objectFit: 'contain' }} />}
+            {feature.icon && <i className={`fa ${feature.icon} fa-3x text-primary`}></i>}
+          </div>
+          <h5 className="card-title">{feature.title}</h5>
+          <p className="card-text">{feature.description}</p>
         </div>
-        <h5 className="text-xl font-bold text-dark mb-2">{feature.title}</h5>
-        {feature.description && <p className="text-gray-600">{feature.description}</p>}
       </div>
     </motion.div>
   );

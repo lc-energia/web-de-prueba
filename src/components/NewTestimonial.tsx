@@ -35,8 +35,9 @@ const NewTestimonial = () => {
     <section className="py-16 sm:py-20 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center">
-          <div className="w-full lg:w-2/3 text-center">
-            <div className="h-16">
+          <div className="w-full lg:w-3/4 text-center">
+            {/* Set a fixed height to prevent layout shift */}
+            <div className="h-16 flex items-center justify-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={index}
@@ -45,6 +46,7 @@ const NewTestimonial = () => {
                   animate="center"
                   exit="exit"
                   transition={{ duration: 0.5 }}
+                  className="w-full"
                 >
                   <p className="text-2xl font-light text-gray-700 italic">
                     &ldquo;{testimonialData[index].text}&rdquo;

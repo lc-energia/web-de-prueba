@@ -45,9 +45,9 @@ const ServicePage: FC<{ service: ServiceData; slug: string }> = ({ service, slug
   return (
     <ServicePageLayout title={service.title}>
       <div className="text-center max-w-4xl mx-auto mb-12">
-        {service.introduction.map((paragraph, i) => (
+        {Array.isArray(service.introduction) ? service.introduction.map((paragraph, i) => (
           <p key={i} className="text-lg text-gray-600 leading-relaxed mb-4">{paragraph}</p>
-        ))}
+        )) : <p className="text-lg text-gray-600 leading-relaxed mb-4">{service.introduction}</p>}
       </div>
 
       {service.mainFeatures && (
@@ -81,7 +81,6 @@ const ServicePage: FC<{ service: ServiceData; slug: string }> = ({ service, slug
         </div>
       )}
 
-      {/* Main Content Sections */}
       <div className="space-y-16">
         {slug === 'contabilizzazione-calore-impianti-termici-centralizzati' ? (
           <div>

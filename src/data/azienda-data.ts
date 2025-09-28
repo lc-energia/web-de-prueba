@@ -50,7 +50,7 @@ export const accreditations: Accreditation[] = [
       "Verificatori in materia di sicurezza degli impianti ai sensi della Legge 46/90.",
       "Consulenti tecnici del Tribunale di Como, Monza, Lecco."
     ],
-    pageTitle: "Accrediti LC Energia",
-    pageDescription: "LC Energia è composta da un team di professionisti qualificati, regolarmente iscritti agli albi professionali e in possesso di tutte le certificazioni necessarie per operare nel settore energetico e della sicurezza.",
+    pageTitle: "I Nostri Accrediti Professionali",
+    pageDescription: "LC Energia è composta da un team di professionisti qualificati, regolarmente iscritti agli albi professionali e in possesso di tutte le certificazioni necessarie per operare nel settore energetico e della sicurezza con la massima competenza.",
   },
 ];

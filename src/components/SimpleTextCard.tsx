@@ -1,32 +1,32 @@
 import { motion, Variants } from 'framer-motion';
-import { FC, ReactNode } from 'react';
-
-export interface SimpleFeature {
-  text: string;
-  icon: ReactNode;
-}
+import { FC } from 'react';
 
 interface SimpleTextCardProps {
-  feature: SimpleFeature;
+  feature: {
+    text: string;
+    icon: string;
+  };
   variants: Variants;
   i: number;
+  columnClass: string;
 }
 
-const SimpleTextCard: FC<SimpleTextCardProps> = ({ feature, variants, i }) => {
+const SimpleTextCard: FC<SimpleTextCardProps> = ({ feature, variants, i, columnClass }) => {
   return (
     <motion.div
+      className={columnClass}
       custom={i}
       initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
+      animate="visible"
       variants={variants}
-      className="w-full"
     >
-      <div className="bg-white rounded-lg shadow-lg h-full p-6 text-center transition-transform transform hover:-translate-y-2 hover:shadow-xl">
-        <div className="mb-4 inline-block text-primary">
-          {feature.icon}
+      <div className="card h-100 shadow-sm border-0 text-center">
+        <div className="card-body p-4">
+          <div className="mb-3">
+            <i className={`fa ${feature.icon} fa-3x text-primary`}></i>
+          </div>
+          <p className="card-text fw-bold">{feature.text}</p>
         </div>
-        <p className="text-lg font-semibold text-dark">{feature.text}</p>
       </div>
     </motion.div>
   );

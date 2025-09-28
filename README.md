@@ -1,77 +1,36 @@
-# LC Energia Website
-
-This is the official website for LC Energia, a modern web application built with Next.js, TypeScript, and Tailwind CSS. The site is designed to be performant, accessible, and maintainable.
-
-## Tech Stack
-
-- **Framework**: [Next.js](https://nextjs.org/) 15 (with App Router)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) 4 with a custom theme
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Linting**: [ESLint](https://eslint.org/)
-
-## Project Structure
-
-The project follows a standard Next.js App Router structure:
-
-- `src/app/`: Contains the page routes, layouts, and metadata.
-- `src/components/`: Contains all reusable React components.
-- `src/data/`: Holds static data used across the application (e.g., carousel content).
-- `src/hooks/`: For custom React hooks.
-- `public/`: For static assets like images and fonts.
-- `tailwind.config.mjs`: The configuration file for the Tailwind CSS design system.
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js (v20 or later recommended)
-- npm or your package manager of choice
-
-### Installation
-
-1.  **Clone the repository:**
-    ```bash
-    git clone <repository-url>
-    ```
-
-2.  **Navigate to the project directory:**
-    ```bash
-    cd lc-energia-modern
-    ```
-
-3.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
-
-### Running the Development Server
-
-To start the local development server, run:
+First, run the development server:
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the result. The page will auto-update as you edit the files.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Available Scripts
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- `npm run dev`: Starts the development server with Turbopack.
-- `npm run build`: Creates a production-ready build of the application.
-- `npm run start`: Starts the production server.
-- `npm run lint`: Lints the codebase using ESLint to find and fix issues.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Styling
+## Learn More
 
-This project uses **Tailwind CSS** for all styling. We have a centralized theme defined in `tailwind.config.mjs` which includes a custom color palette and font families. Please use theme variables (e.g., `bg-primary`, `text-secondary`) instead of hardcoded values to ensure design consistency.
+To learn more about Next.js, take a look at the following resources:
 
-Legacy stylesheets have been removed to improve performance and maintainability.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Animations
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-We use `framer-motion` for animations. The animation system is documented in detail in `src/README.md`. Please refer to it for guidelines on creating and using animations.
+## Deploy on Vercel
 
-## Deployment
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-The easiest way to deploy this Next.js application is to use the [Vercel Platform](https://vercel.com/new). Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

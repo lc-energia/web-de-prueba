@@ -13,19 +13,29 @@ const config = {
       },
       colors: {
         primary: {
-          DEFAULT: "#007BFF",
-          hover: "#0056b3",
+          DEFAULT: "#9BBD2D", // Green
+          hover: "#82a025", // A slightly darker green for hover states
         },
         secondary: {
-          DEFAULT: "#F49918",
-          hover: "#d9830d",
+          DEFAULT: "#F49918", // Orange
+          hover: "#d9830d", // A slightly darker orange for hover states
         },
-        accent: {
-          DEFAULT: "#28a745",
-          hover: "#218838",
+        dark: {
+          DEFAULT: "#1A2A36", // A very dark blue, almost black
+          light: "#334155"  // A lighter shade of dark for secondary text
         },
-        light: "#f8f9fa",
-        dark: "#343a40",
+        light: "#f8f9fa", // A very light gray for backgrounds
+        gray: {
+          100: '#f7fafc',
+          200: '#edf2f7',
+          300: '#e2e8f0',
+          400: '#cbd5e0',
+          500: '#a0aec0',
+          600: '#718096',
+          700: '#4a5568',
+          800: '#2d3748',
+          900: '#1a202c',
+        }
       },
     },
   },

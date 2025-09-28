@@ -1,3 +1,4 @@
+
 "use client";
 import { motion } from "framer-motion";
 import PageHeader from "@/components/PageHeader";
@@ -11,8 +12,8 @@ const ServicePageLayout = ({ title, children }: ServicePageLayoutProps) => {
   return (
     <>
       <PageHeader title={title} />
-      <main className="py-16 sm:py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container-xxl py-5">
+        <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -21,7 +22,7 @@ const ServicePageLayout = ({ title, children }: ServicePageLayoutProps) => {
             {children}
           </motion.div>
         </div>
-      </main>
+      </div>
     </>
   );
 };

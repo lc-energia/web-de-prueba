@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const About = () => {
   return (
-    <section className="bg-light overflow-hidden py-16 sm:py-20">
+    <section className="bg-light overflow-hidden">
       <div className="container mx-auto">
         <div className="flex flex-wrap lg:flex-nowrap items-center">
           {/* Text Content */}
@@ -15,7 +15,7 @@ const About = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.25 }}
-            className="w-full lg:w-1/2 py-12 px-4 sm:px-6 lg:px-8"
+            className="w-full lg:w-1/2 py-16 px-4 sm:px-6 lg:px-8"
           >
             <div>
               <h6 className="text-primary font-semibold text-lg uppercase tracking-wide">

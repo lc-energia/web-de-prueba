@@ -27,9 +27,10 @@ const FlippableCard = ({ text }: { text: string }) => {
       onFocus={() => setIsFlipped(true)}
       onBlur={() => setIsFlipped(false)}
       tabIndex={0}
+      aria-live="polite"
     >
       <motion.div
-        className="relative w-full h-full"
+        className="relative w-full h-24"
         style={{ transformStyle: 'preserve-3d' }}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         transition={{ duration: 0.6 }}

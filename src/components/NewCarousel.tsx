@@ -30,9 +30,9 @@ const NewCarousel = () => {
 
   return (
     <section
-      className="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden"
+      className="relative w-full h-[500px] sm:h-[600px] lg:h-[700px] overflow-hidden"
       aria-roledescription="carousel"
-      aria-label="Highlighted content"
+      aria-label="Contenuto in primo piano"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
@@ -46,7 +46,7 @@ const NewCarousel = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8 }}
           >
             <Image
               src={currentSlide.img}
@@ -54,9 +54,10 @@ const NewCarousel = () => {
               fill
               style={{ objectFit: 'cover' }}
               priority={index === 0}
+              sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-center">
-              <div className="container mx-auto px-4">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20 flex items-center">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl">
                   <motion.h1
                     className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white"
@@ -69,7 +70,7 @@ const NewCarousel = () => {
                     {currentSlide.title.part3}
                   </motion.h1>
                   <motion.p
-                    className="text-lg sm:text-xl font-medium text-white my-4"
+                    className="text-lg sm:text-xl font-light text-white my-6"
                     initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
@@ -81,8 +82,8 @@ const NewCarousel = () => {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
                   >
-                    <Link href={currentSlide.link} className="inline-block bg-primary text-white rounded-full py-3 px-6 text-lg font-semibold hover:bg-primary-hover transition-colors">
-                      Read More
+                    <Link href={currentSlide.link} className="inline-block bg-primary text-white rounded-full py-3 px-8 text-lg font-semibold hover:bg-primary-hover transition-colors">
+                      Scopri di più
                     </Link>
                   </motion.div>
                 </div>
@@ -92,13 +93,13 @@ const NewCarousel = () => {
         </AnimatePresence>
       </div>
 
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3">
         {carouselData.map((_, slideIndex) => (
           <button
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
-            className={`w-3 h-3 rounded-full transition-colors ${index === slideIndex ? 'bg-white' : 'bg-gray-400 hover:bg-gray-200'}`}
-            aria-label={`Go to slide ${slideIndex + 1}`}
+            className={`w-3 h-3 rounded-full transition-colors duration-300 ${index === slideIndex ? 'bg-white' : 'bg-white/50 hover:bg-white'}`}
+            aria-label={`Vai alla slide ${slideIndex + 1}`}
             aria-current={index === slideIndex}
           />
         ))}
@@ -110,7 +111,7 @@ const NewCarousel = () => {
         aria-atomic="true"
       >
         <p className="sr-only">
-          {`Slide ${index + 1} of ${carouselData.length}: ${fullTitle}`}
+          {`Slide ${index + 1} di ${carouselData.length}: ${fullTitle}`}
         </p>
       </div>
     </section>

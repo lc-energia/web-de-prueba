@@ -3,6 +3,7 @@ import { metadata } from './metadata';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Script from 'next/script';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -26,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" className={`${openSans.variable} ${roboto.variable}`}>
-      <head />
+      <head>
+        <link rel="icon" href="/img/logo.ico" />
+      </head>
       <body>
         <Navbar />
         {children}

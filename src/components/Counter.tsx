@@ -18,7 +18,7 @@ const Counter = ({ from, to, className }: CounterProps) => {
         duration: 2.5,
         onUpdate(value) {
           if (ref.current) {
-            // Format with dots for thousands
+            // Format with dots for thousands for Italian locale
             ref.current.textContent = Math.round(value).toLocaleString('it-IT');
           }
         },
@@ -26,7 +26,7 @@ const Counter = ({ from, to, className }: CounterProps) => {
     }
   }, [inView, from, to]);
 
-  return <span ref={ref} className={className}>{from}</span>;
+  return <span ref={ref} className={className}>{from.toLocaleString('it-IT')}</span>;
 };
 
 export default Counter;

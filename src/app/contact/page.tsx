@@ -36,7 +36,7 @@ const ContactPage = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Email Contact */}
-                <div className="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform">
+                <div className="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                   <div className="text-primary mb-4 inline-block">
                     <EnvelopeIcon />
                   </div>
@@ -44,22 +44,22 @@ const ContactPage = () => {
                   <p className="text-gray-600 text-lg">info@lc-energia.it</p>
                   <a
                     href="mailto:info@lc-energia.it"
-                    className="mt-6 inline-block bg-primary text-white font-semibold rounded-full py-3 px-8 hover:bg-primary-hover transition-colors"
+                    className="mt-6 inline-block bg-primary text-white font-semibold rounded-full py-3 px-8 hover:bg-primary-hover transition-colors duration-300"
                   >
                     Scrivi ora
                   </a>
                 </div>
 
                 {/* Phone Contact */}
-                <div className="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform">
-                  <div className="text-primary mb-4 inline-block">
+                <div className="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                  <div className="text-secondary mb-4 inline-block">
                     <PhoneIcon />
                   </div>
                   <h5 className="text-2xl font-bold text-dark mb-3">Chiama ora</h5>
                   <p className="text-gray-600 text-lg">0362 992142</p>
                   <a
                     href="tel:0362992142"
-                    className="mt-6 inline-block bg-secondary text-white font-semibold rounded-full py-3 px-8 hover:bg-secondary-hover transition-colors"
+                    className="mt-6 inline-block bg-secondary text-white font-semibold rounded-full py-3 px-8 hover:bg-secondary-hover transition-colors duration-300"
                   >
                     Chiama
                   </a>
@@ -71,7 +71,7 @@ const ContactPage = () => {
       </section>
 
       <section className="w-full">
-        <div className="h-[350px] md:h-[500px]">
+        <div className="h-[400px] md:h-[500px]">
           <iframe
             className="w-full h-full border-0"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2788.386039023569!2d9.224754576986633!3d45.66315002014133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786bc9573a448a1%3A0x51f9fe9c02a37f97!2sVia%20della%20Valle%2C%2039%2C%2020841%20Carate%20Brianza%20MB%2C%20Italy!5e0!3m2!1sen!2ssi!4v1729678261040!5m2!1sen!2ssi"
