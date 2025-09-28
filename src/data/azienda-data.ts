@@ -35,8 +35,7 @@ export const teamMembers = [
 
 export interface Accreditation {
   title: string;
-  description: string;
-  icon: string;
+  description: string[];
   pageTitle: string;
   pageDescription: string;
 }
@@ -44,9 +43,14 @@ export interface Accreditation {
 export const accreditations: Accreditation[] = [
   {
     title: "Accrediti LC Energia",
-    description: "Iscritti all'ordine degli Ingegneri e all'albo Provinciale dei Periti Industriali.<br>Certificatori Energetici di cui alla D.G.R. Lombardia.<br>Iscritti negli elenchi del Ministero degli Interni dei professionisti abilitati alla progettazione antincendio ed all'estensione di perizie giurate di cui alla Legge 818/84.<br>Verificatori in materia di sicurezza degli impianti ai sensi della Legge 46/90.<br>Consulenti tecnici del Tribunale di Como, Monza, Lecco.",
-    icon: "bi bi-shield-fill-check",
+    description: [
+      "Iscritti all'ordine degli Ingegneri e all'albo Provinciale dei Periti Industriali.",
+      "Certificatori Energetici di cui alla D.G.R. Lombardia.",
+      "Iscritti negli elenchi del Ministero degli Interni dei professionisti abilitati alla progettazione antincendio ed all'estensione di perizie giurate di cui alla Legge 818/84.",
+      "Verificatori in materia di sicurezza degli impianti ai sensi della Legge 46/90.",
+      "Consulenti tecnici del Tribunale di Como, Monza, Lecco."
+    ],
     pageTitle: "Accrediti LC Energia",
-    pageDescription: "Iscritti all'ordine degli Ingegneri e all'albo Provinciale dei Periti Industriali.",
+    pageDescription: "LC Energia è composta da un team di professionisti qualificati, regolarmente iscritti agli albi professionali e in possesso di tutte le certificazioni necessarie per operare nel settore energetico e della sicurezza.",
   },
 ];
