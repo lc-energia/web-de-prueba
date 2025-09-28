@@ -6,12 +6,12 @@ import Services from '@/components/Services';
 
 export default function Home() {
   return (
-    <>
+    <main>
       <NewCarousel />
       <NewTestimonial />
       <About />
       <Feature />
       <Services />
-    </>
+    </main>
   );
 }

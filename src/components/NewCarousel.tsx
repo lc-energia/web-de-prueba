@@ -2,89 +2,118 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { carouselData } from '@/data/carousel-data';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const NewCarousel = () => {
   const [index, setIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return;
+
     const timer = setInterval(() => {
       setIndex((prevIndex) =>
         prevIndex === carouselData.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000); // Change slide every 5 seconds
+    }, 5000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused]);
 
   const goToSlide = (slideIndex: number) => {
     setIndex(slideIndex);
   };
 
+  const currentSlide = carouselData[index];
+  const fullTitle = `${currentSlide.title.part1 || ''}${currentSlide.title.part2 || ''}${currentSlide.title.part3 || ''}`;
+
   return (
-    <div className="container-fluid p-0 pb-5">
-      <div className="relative h-[400px] sm:h-[500px] lg:h-[600px]">
+    <section
+      className="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden"
+      aria-roledescription="carousel"
+      aria-label="Highlighted content"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+    >
+      <div className="h-full">
         <AnimatePresence initial={false}>
           <motion.div
             key={index}
             className="absolute inset-0"
-            style={{
-              backgroundImage: `url(${carouselData[index].img})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div
-              className="absolute inset-0 flex items-center"
-              style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0))' }}
-            >
-              <div className="container">
-                <div className="row justify-content-start">
-                  <div className="col-10 col-lg-8">
-                    <motion.h1
-                      className="display-2 text-white"
-                      initial={{ y: -50, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.2 }}
-                      dangerouslySetInnerHTML={{ __html: carouselData[index].title }}
-                    />
-                    <motion.p
-                      className="fs-5 fw-medium text-white mb-4 pb-3"
-                      initial={{ y: -50, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
-                    >
-                      {carouselData[index].text}
-                    </motion.p>
-                    <motion.a
-                      href={carouselData[index].link}
-                      className="btn btn-primary rounded-pill py-3 px-5"
-                      initial={{ x: -100, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.6 }}
-                    >
+            <Image
+              src={currentSlide.img}
+              alt={currentSlide.alt}
+              fill
+              style={{ objectFit: 'cover' }}
+              priority={index === 0}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-center">
+              <div className="container mx-auto px-4">
+                <div className="max-w-3xl">
+                  <motion.h1
+                    className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white"
+                    initial={{ y: -50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                  >
+                    {currentSlide.title.part1 && <span className="text-secondary">{currentSlide.title.part1}</span>}
+                    {currentSlide.title.part2 && <span className="text-primary">{currentSlide.title.part2}</span>}
+                    {currentSlide.title.part3}
+                  </motion.h1>
+                  <motion.p
+                    className="text-lg sm:text-xl font-medium text-white my-4"
+                    initial={{ y: -50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                  >
+                    {currentSlide.text}
+                  </motion.p>
+                  <motion.div
+                    initial={{ x: -100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                  >
+                    <Link href={currentSlide.link} className="inline-block bg-primary text-white rounded-full py-3 px-6 text-lg font-semibold hover:bg-primary-hover transition-colors">
                       Read More
-                    </motion.a>
-                  </div>
+                    </Link>
+                  </motion.div>
                 </div>
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-          {carouselData.map((_, slideIndex) => (
-            <button
-              key={slideIndex}
-              onClick={() => goToSlide(slideIndex)}
-              className={`w-3 h-3 rounded-full ${index === slideIndex ? 'bg-white' : 'bg-gray-400'}`}
-            />
-          ))}
-        </div>
       </div>
-    </div>
+
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+        {carouselData.map((_, slideIndex) => (
+          <button
+            key={slideIndex}
+            onClick={() => goToSlide(slideIndex)}
+            className={`w-3 h-3 rounded-full transition-colors ${index === slideIndex ? 'bg-white' : 'bg-gray-400 hover:bg-gray-200'}`}
+            aria-label={`Go to slide ${slideIndex + 1}`}
+            aria-current={index === slideIndex}
+          />
+        ))}
+      </div>
+
+      <div
+        className="absolute top-0 left-0 w-full h-full"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <p className="sr-only">
+          {`Slide ${index + 1} of ${carouselData.length}: ${fullTitle}`}
+        </p>
+      </div>
+    </section>
   );
 };
 
