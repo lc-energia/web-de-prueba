@@ -3,7 +3,6 @@ import { metadata } from './metadata';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Script from 'next/script';
 
 const openSans = Open_Sans({
   subsets: ['latin'],

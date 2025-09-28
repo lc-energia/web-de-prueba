@@ -3,7 +3,7 @@ import { FC, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-import { ServiceData, Section } from '@/data/services-data';
+import { ServiceData } from '@/data/services-data';
 import ServicePageLayout from '@/components/ServicePageLayout';
 import FeatureCard, { Feature } from '@/components/FeatureCard';
 import FaqAccordion from '@/components/FaqAccordion';
@@ -59,7 +59,6 @@ const ServicePage: FC<{ service: ServiceData; slug: string }> = ({ service, slug
         </div>
       )}
 
-      {/* Special Sections */}
       {slug === 'impianti-fotovoltaici' && (
         <section className="py-12">
           <div className="container mx-auto">
@@ -103,13 +102,18 @@ const ServicePage: FC<{ service: ServiceData; slug: string }> = ({ service, slug
         ) : (
           service.sections.map((section, i) => {
             if (section.modes || section.features) {
-              const items = (section.modes || section.features)?.map(item => ({...item, icon: iconMap[item.icon || '']})) as Feature[];
-              const gridCols = slug === 'progettazione-acustica' || slug === 'progettazione-antincendio' ? 'lg:grid-cols-2' : 'lg:grid-cols-4';
+              let items: Feature[] = [];
+              if (section.modes) {
+                items = section.modes.map(item => ({ title: item.title, description: item.description, image: item.image }));
+              } else if (section.features) {
+                items = section.features.map(item => ({ title: item.title, description: item.description, icon: iconMap[item.icon || ''] }));
+              }
+              const gridLayout = slug === 'progettazione-acustica' || slug === 'progettazione-antincendio' ? 'lg:grid-cols-2' : 'lg:grid-cols-4';
               return (
                 <div key={i} className="text-center">
                   <h2 className="text-3xl font-bold mb-4 text-dark">{section.title}</h2>
                   {section.content && <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">{section.content}</p>}
-                  <div className={`grid grid-cols-1 md:grid-cols-2 ${gridCols} gap-6`}>
+                  <div className={`grid grid-cols-1 md:grid-cols-2 ${gridLayout} gap-6`}>
                     {items.map((item, j) => <FeatureCard key={j} feature={item} variants={cardVariants} i={j} />)}
                   </div>
                 </div>
@@ -118,25 +122,22 @@ const ServicePage: FC<{ service: ServiceData; slug: string }> = ({ service, slug
             if (section.title === 'FAQ') {
               return <FaqAccordion key={i} section={section} />;
             }
-            const gridCols = section.fullWidth ? 'md:grid-cols-1' : 'md:grid-cols-2 lg:grid-cols-3';
             return (
               <motion.div key={i} custom={i} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} variants={cardVariants}>
-                <div className="grid grid-cols-1 gap-6">
-                    <div className="bg-white rounded-lg shadow-lg p-6 h-full">
-                      <div className="flex items-center mb-4">
-                        {!section.hideLogo && <Image src="/img/logo.png" alt="icon" width={40} height={40} className="mr-4"/>}
-                        <h5 className="text-xl font-bold text-dark">{section.title}</h5>
-                      </div>
-                      <p className="text-gray-600">{section.content}</p>
-                      {section.list && (
-                        <ul className="mt-4 space-y-2">
-                          {section.list.map((item, j) => (
-                            <li key={j} className="flex items-start"><CheckCircleIcon /><span>{item}</span></li>
-                          ))}
-                        </ul>
-                      )}
+                 <div className="bg-white rounded-lg shadow-lg p-6 h-full">
+                    <div className="flex items-center mb-4">
+                      {!section.hideLogo && <Image src="/img/logo.png" alt="icon" width={40} height={40} className="mr-4"/>}
+                      <h5 className="text-xl font-bold text-dark">{section.title}</h5>
                     </div>
-                </div>
+                    <p className="text-gray-600">{section.content}</p>
+                    {section.list && (
+                      <ul className="mt-4 space-y-2">
+                        {section.list.map((item, j) => (
+                          <li key={j} className="flex items-start"><CheckCircleIcon /><span>{item}</span></li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
               </motion.div>
             );
           })
