@@ -33,9 +33,10 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
         >
           <Image
             src={images[index]}
-            alt="Carousel Image"
-            layout="fill"
-            objectFit="cover"
+            alt={`Carousel Image ${index + 1}`}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            style={{ objectFit: 'cover' }}
           />
         </motion.div>
       </AnimatePresence>

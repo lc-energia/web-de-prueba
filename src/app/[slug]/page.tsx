@@ -1,9 +1,18 @@
-
 import { servicesData } from '@/data/services-data';
 import ServicePage from './ServicePage';
 import { notFound } from 'next/navigation';
 
-const Page = async ({ params }: { params: { slug: string } }) => {
+interface PageProps {
+  params: { slug: string };
+}
+
+export async function generateStaticParams() {
+  return Object.keys(servicesData).map((slug) => ({
+    slug,
+  }));
+}
+
+const Page = ({ params }: PageProps) => {
   const { slug } = params;
   const service = servicesData[slug];
 

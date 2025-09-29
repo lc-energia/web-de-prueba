@@ -12,7 +12,7 @@ const openSans = Open_Sans({
 
 const roboto = Roboto({
   subsets: ['latin'],
-  weight: ['500', '700', '900'],
+  weight: ['400', '500', '700', '900'],
   display: 'swap',
   variable: '--font-roboto',
 });

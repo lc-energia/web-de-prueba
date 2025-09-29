@@ -5,11 +5,26 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface AccordionItem {
   title: string;
   content: string;
+  list?: string[];
 }
 
 interface InfoAccordionProps {
   items: AccordionItem[];
 }
+
+const AccordionIcon = ({ isOpen }: { isOpen: boolean }) => (
+  <motion.svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6 flex-shrink-0 text-primary"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    animate={{ rotate: isOpen ? -180 : 0 }}
+    transition={{ duration: 0.3 }}
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+  </motion.svg>
+);
 
 const InfoAccordion = ({ items }: InfoAccordionProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
@@ -19,22 +34,21 @@ const InfoAccordion = ({ items }: InfoAccordionProps) => {
   };
 
   return (
-    <div className="col-lg-12">
-      <div className="accordion" id="infoAccordion">
+    <div className="w-full">
+      <div className="space-y-4">
         {items.map((item, index) => (
-          <div className="accordion-item" key={index}>
-            <h2 className="accordion-header" id={`heading${index}`}>
-              <button
-                className={`accordion-button ${activeIndex === index ? '' : 'collapsed'}`}
-                type="button"
-                onClick={() => toggleAccordion(index)}
-              >
-                {item.title}
-              </button>
-            </h2>
+          <div className="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm" key={index}>
+            <button
+              className="w-full flex justify-between items-center p-5 text-left font-semibold text-lg text-dark"
+              onClick={() => toggleAccordion(index)}
+              aria-expanded={activeIndex === index}
+            >
+              <span>{item.title}</span>
+              <AccordionIcon isOpen={activeIndex === index} />
+            </button>
             <AnimatePresence initial={false}>
               {activeIndex === index && (
-                <motion.div
+                <motion.section
                   key="content"
                   initial="collapsed"
                   animate="open"
@@ -43,10 +57,20 @@ const InfoAccordion = ({ items }: InfoAccordionProps) => {
                     open: { opacity: 1, height: 'auto' },
                     collapsed: { opacity: 0, height: 0 },
                   }}
-                  transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+                  transition={{ duration: 0.4, ease: 'easeInOut' }}
+                  className="overflow-hidden"
                 >
-                  <div className="accordion-body">{item.content}</div>
-                </motion.div>
+                  <div className="p-5 pt-0 text-gray-600">
+                    <p>{item.content}</p>
+                    {item.list && (
+                        <ul className="list-disc list-inside mt-4 space-y-2">
+                            {item.list.map((point, i) => (
+                                <li key={i}>{point}</li>
+                            ))}
+                        </ul>
+                    )}
+                  </div>
+                </motion.section>
               )}
             </AnimatePresence>
           </div>

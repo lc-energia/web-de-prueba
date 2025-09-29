@@ -1,21 +1,26 @@
-
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface PageHeaderProps {
   title: string;
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({ title }) => {
-  const headerStyle = {
-    background: `linear-gradient(rgba(26, 42, 54, 0.8), rgba(26, 42, 54, 0.8)), url(/img/imagenheader.JPEG) center center no-repeat`,
-    backgroundSize: 'cover',
-  };
-
   return (
-    <div style={headerStyle} className="py-20 sm:py-24 md:py-28 mb-5">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+    <div className="relative py-28 sm:py-32 md:py-36 mb-5">
+      <div className="absolute inset-0">
+        <Image
+          src="/img/imagenheader.JPEG"
+          alt="Header background"
+          fill
+          style={{ objectFit: 'cover', zIndex: -1 }}
+          priority
+        />
+        <div className="absolute inset-0 bg-dark opacity-80"></div>
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center relative">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}

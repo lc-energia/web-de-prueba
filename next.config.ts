@@ -12,10 +12,12 @@ const ContentSecurityPolicy = `
 `;
 
 const nextConfig: NextConfig = {
-  i18n: {
-    locales: ['it'],
-    defaultLocale: 'it',
-  },
+  // i18n configuration is not supported in App Router.
+  // If you need internationalization, please refer to the Next.js documentation for App Router.
+  // i18n: {
+  //   locales: ['it'],
+  //   defaultLocale: 'it',
+  // },
   async headers() {
     return [
       {

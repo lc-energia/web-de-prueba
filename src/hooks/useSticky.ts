@@ -1,24 +1,19 @@
 'use client';
 import { useState, useEffect } from 'react';
 
-export const useSticky = (offset = 300) => {
-  const [isSticky, setIsSticky] = useState(false);
+export const useSticky = () => {
+  const [isSticky, setSticky] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > offset) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
+      setSticky(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [offset]);
+  }, []);
 
   return isSticky;
 };
