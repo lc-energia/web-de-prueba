@@ -1,4 +1,4 @@
-import NewCarousel from '@/components/features/NewCarousel';
+import PremiumHero from '@/components/features/PremiumHero';
 import Feature from '@/components/features/Feature';
 import Services from '@/components/features/Services';
 import DynamicNewTestimonial from '@/components/features/DynamicNewTestimonial';
@@ -6,8 +6,8 @@ import DynamicNewTestimonial from '@/components/features/DynamicNewTestimonial';
 export default function Home() {
   return (
     <>
-      {/* Hero Carousel */}
-      <NewCarousel />
+      {/* Hero - Sin wrapper adicional, el componente ya tiene su diseño */}
+      <PremiumHero />
 
       {/* Feature - Números estadísticos */}
       <Feature />
