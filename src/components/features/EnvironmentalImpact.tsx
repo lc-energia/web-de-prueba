@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import {
   CloudIcon,
   BoltIcon,
@@ -30,13 +31,14 @@ function AnimatedCounter({ end, suffix = '', duration = 2 }: CounterProps) {
       { threshold: 0.3 }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [isVisible]);
@@ -240,8 +242,8 @@ export default function EnvironmentalImpact() {
           className="text-center"
         >
           <div className="inline-flex flex-col sm:flex-row gap-4 items-center justify-center">
-            <a
-              href="/contatti"
+            <Link
+              href="/contatti/"
               className="
                 group px-8 py-4
                 bg-gradient-to-r from-success-500 to-primary-600
@@ -261,10 +263,10 @@ export default function EnvironmentalImpact() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </Link>
 
-            <a
-              href="/servizi"
+            <Link
+              href="/servizi/"
               className="
                 px-8 py-4
                 border-2 border-success-500 text-success-600
@@ -275,7 +277,7 @@ export default function EnvironmentalImpact() {
               "
             >
               <span>Scopri Come</span>
-            </a>
+            </Link>
           </div>
 
           <p className="text-sm text-neutral-500 mt-6">
