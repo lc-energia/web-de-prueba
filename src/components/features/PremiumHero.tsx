@@ -53,16 +53,78 @@ const PremiumHero = () => {
                 </Text>
               </div>
 
-              {/* Minimalist Value List */}
+              {/* CTAs */}
               <motion.div
-                className="mt-2 grid gap-1"
+                className="flex flex-col sm:flex-row gap-4 mt-8"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
+                <a
+                  href="/contatti"
+                  className="
+                    group relative px-8 py-4
+                    bg-gradient-to-r from-secondary-500 to-secondary-600
+                    text-white font-semibold text-lg rounded-xl
+                    shadow-secondary hover:shadow-secondary-hover
+                    transition-all duration-300
+                    hover:scale-105 hover:-translate-y-0.5
+                    flex items-center justify-center gap-2
+                  "
+                >
+                  <span>Richiedi Preventivo</span>
+                  <svg
+                    className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
 
+                <a
+                  href="/servizi"
+                  className="
+                    group px-8 py-4
+                    border-2 border-primary-500 text-primary-600
+                    font-semibold text-lg rounded-xl
+                    hover:bg-primary-50
+                    transition-all duration-300
+                    flex items-center justify-center gap-2
+                  "
+                >
+                  <span>Scopri i Servizi</span>
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </motion.div>
 
-
+              {/* Quick Stats */}
+              <motion.div
+                className="flex flex-wrap gap-6 mt-10 pt-10 border-t border-neutral-200"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-primary-500 to-primary-600"></div>
+                  <span className="text-sm font-semibold text-neutral-700">500+ Progetti</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-solar-400 to-solar-500"></div>
+                  <span className="text-sm font-semibold text-neutral-700">50MW Installati</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-success-500 to-success-600"></div>
+                  <span className="text-sm font-semibold text-neutral-700">-2000T CO₂</span>
+                </div>
               </motion.div>
 
               </motion.div>
