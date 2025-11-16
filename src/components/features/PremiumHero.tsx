@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useTiltEffect } from '@/hooks/useTiltEffect';
 import { HeroTitle, Text, HighlightText, Badge } from '@/components/ui/Typography';
 
@@ -60,7 +61,7 @@ const PremiumHero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <a
+                <Link
                   href="/contatti"
                   className="
                     group relative px-8 py-4
@@ -81,9 +82,9 @@ const PremiumHero = () => {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </a>
+                </Link>
 
-                <a
+                <Link
                   href="/servizi"
                   className="
                     group px-8 py-4
@@ -103,7 +104,7 @@ const PremiumHero = () => {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </a>
+                </Link>
               </motion.div>
 
               {/* Quick Stats */}
